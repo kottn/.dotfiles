@@ -1,0 +1,23 @@
+term screen-256color
+autodetach on
+altscreen on
+mousetrack on
+escape ^Kk
+zombie kr # -- kill(k) or restart(r)
+defscrollback 1000
+startup_message off
+
+# -- Status
+hardstatus off
+hardstatus alwayslastline
+hardstatus stirng '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W} %c %{g}]'
+hardstatus alwayslastline '%{= G}[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{= R}%n*%f %t%?%{= R}(%u)%?%{= w}%+Lw%?%= %{= g}][ %{y}Load: %l %{g}][%{B}%Y-%m-%d %{W}%c:%s %{g}]'
+
+maptimeout 5
+verbose on
+nethack on
+vbell on
+bind ^G
+bind R eval 'source $HOME/.screenrc'
+bind : colon
+
