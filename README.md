@@ -1,10 +1,10 @@
 # dotfiles
-My dotfiles for Debian 9 configuration
+My dotfiles for Debian 9
 
 ## install
 ```
-git clone https://github.com/tkotani1/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
-sh install.sh
+git clone https://github.com/tkotani1/dotfiles.git .dotfiles
+cd .dotfiles
+./install.sh
 ```
 
