@@ -62,15 +62,17 @@ TERM xterm-256color
 TERM xterm-88color
 TERM xterm-color
 TERM xterm-debian
-# Below are the color init strings for the basic file types. A color init
-# string consists of one or more of the following numeric codes:
+
+# Color scheme
+# ------------
 # Attribute codes:
-# 00=none 01=bold 04=underscore 05=blink 07=reverse 08=concealed
+#   00=none 01=bold 04=underscore 05=blink 07=reverse 08=concealed
 # Text color codes:
-# 30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white
+#   30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white
 # Background color codes:
-# 40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
-#NORMAL 00 # no color code at all
+#   40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
+
+NORMAL 00 # no color code at all
 #FILE 00 # regular file: use no color at all
 RESET 0 # reset to "normal" color
 DIR 01;34 # directory
@@ -83,32 +85,30 @@ DOOR 01;35 # door
 BLK 40;33;01 # block device driver
 CHR 40;33;01 # character device driver
 #ORPHAN 40;31;01 # symlink to nonexistent file, or non-stat'able file
-ORPHAN 36;05 ### kotani ###
+ORPHAN 36;05 # -- kotani
 SETUID 37;41 # file that is setuid (u+s)
 SETGID 30;43 # file that is setgid (g+s)
 CAPABILITY 30;41 # file with capability
 STICKY_OTHER_WRITABLE 30;42 # dir that is sticky and other-writable (+t,o+w)
 #OTHER_WRITABLE 34;42 # dir that is other-writable (o+w) and not sticky
-OTHER_WRITABLE 35;44 # --kotani
+OTHER_WRITABLE 35;44 # -- kotani
 STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
-# This is for files with execute permission:
-EXEC 01;32
-# List any file extensions like '.gz' or '.tar' that you would like ls
-# to colorize below. Put the extension, a space, and the color init string.
-# (and any comments you want to add after a '#')
-# If you use DOS-style suffixes, you may want to uncomment the following:
-#.cmd 01;32 # executables (bright green)
-#.exe 01;32
-#.com 01;32
-#.btm 01;32
-#.bat 01;32
-# Or if you want to colorize scripts even if they do not have the
-# executable bit actually set.
-.sh 01;31 ### kotani ###
-#.csh 01;32
-# archives or compressed (bright red)
-# --kotani
-.tar 00;31
+
+# -- kotani >>
+# Executables:
+EXEC 01;32 # bright green
+# Or if they do not have the executable bit:
+.sh 01;31  # bright red
+.bash 01;31
+.csh 01;31
+.zsh 01;31
+.cmd 01;31
+.exe 01;31
+.com 01;31
+.btm 01;31
+.bat 01;31
+# archives or compressed
+.tar 00;31 #red
 .tgz 00;31
 .arc 00;31
 .arj 00;31
@@ -149,7 +149,6 @@ EXEC 01;32
 .7z 00;31
 .rz 00;31
 .cab 00;31
-# --kotani/
 # image formats
 .jpg 01;35
 .jpeg 01;35
@@ -196,6 +195,7 @@ EXEC 01;32
 .yuv 01;35
 .cgm 01;35
 .emf 01;35
+# -- kotani
 # http://wiki.xiph.org/index.php/MIME_Types_and_File_Extensions
 .axv 01;35
 .anx 01;35
