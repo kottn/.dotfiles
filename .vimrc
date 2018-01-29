@@ -1,6 +1,39 @@
 "
 "  Kotani's vimrc
 "
+"  Plugins"{{{>
+"--------------------------------------
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/vim-easy-align'
+
+" 文字列の整形（vim-easy-align）
+  " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+  "vmap <Enter> <Plug>(EasyAlign)
+  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+  "nmap ga <Plug>(EasyAlign)
+  "=== 使い方 ===
+  " 1. ビジュアル選択
+  " 2. <Enter>
+  " 3. *　を打つ（visual選択内のすべてに適用）
+  " 4. そろえたい記号（文字）を打つ
+
+" -- Colorscheme (see http://colorswat.ch/vim)
+" hybrid
+Plug 'w0ng/vim-hybrid'
+" solarized
+Plug 'altercation/vim-colors-solarized'
+" mustang
+Plug 'croaker/mustang-vim'
+" molokai
+Plug 'tomasr/molokai'
+" iceberg
+Plug 'cocopon/iceberg.vim'
+
+call plug#end()
+
+filetype plugin indent on
+
+"<}}}
 "  Basic"{{{>
 "--------------------------------------
 
@@ -107,11 +140,13 @@ syntax on
 
 " カラースキーム
 set background=dark
-colorscheme default
-"colorscheme codeschool
-"colorscheme mustang
+"colorscheme default
 "colorscheme hybrid
-"colorscheme kinako
+"colorscheme solarized
+"colorscheme mustang
+"colorscheme molokai
+colorscheme iceberg
+"colorscheme codeschool
 
 " コメント文の色を変更
 hi Comment cterm=Italic ctermfg=DarkGray guifg=DarkGray
@@ -340,53 +375,3 @@ nnoremap <C-J> :call ExJump()<CR>
 nnoremap <leader>rr :!Rscript --vanilla --slave %<cr>
 
 "<}}}
-"  Plugins"{{{>
-"--------------------------------------
-"" vim起動時のみruntimepathにneobundle.vimを追加
-"if has('vim_starting')
-"  set nocompatible
-"  set runtimepath+=$VIM/.vim/bundle/neobundle.vim
-"endif
-"
-"" neobundle.vimの初期化
-"" NeoBundleを更新するための設定
-"call neobundle#begin(expand('$VIM/.vim/bundle/'))
-"NeoBundleFetch 'Shougo/neobundle.vim'
-"
-"  "========ここにプラグインを記述========
-"  "---General plugin---
-"  " 便利なUnite
-"  NeoBundle 'Shougo/unite.vim'
-"
-"  " 文字列の整形（vim-easy-align）
-"  NeoBundle 'junegunn/vim-easy-align'
-"    " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-"    vmap <Enter> <Plug>(EasyAlign)
-"    " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-"    nmap ga <Plug>(EasyAlign)
-"    "=== 使い方 ===
-"    " 1. ビジュアル選択
-"    " 2. <Enter>
-"    " 3. *　を打つ（visual選択内のすべてに適用）
-"    " 4. そろえたい記号（文字）を打つ
-"
-"  "---Colorscheme plugin---
-"  " hybrid
-"  NeoBundle 'w0ng/vim-hybrid'
-"  " twilight
-"  NeoBundle 'vim-scripts/twilight'
-"  " jellybeans
-"  NeoBundle 'nanotech/jellybeans.vim'
-"  " solarized
-"  NeoBundle 'altercation/vim-colors-solarized'
-"  " mustang
-"  NeoBundle 'croaker/mustang-vim'
-"  " molokai
-"  NeoBundle 'tomasr/molokai'
-"  "======================================
-"
-"" 読み込んだプラグインも含め、ファイルタイプの検出、ファイルタイプ別プラグイン/インデントを有効化する
-"filetype plugin indent on
-"
-"runtime ftplugin/changelog.vim
-""<}}}
