@@ -38,7 +38,7 @@ export PATH=$PATH:~/.gem/ruby/2.3.0/bin
 # Marp
 export PATH=$PATH:~/bin/Marp
 
-#--/ Alias
+# -- Alias
 alias sc='source ~/.bashrc'
 alias mv='mv -i'
 alias cp='cp -i'
@@ -52,15 +52,16 @@ alias la='ls -a'
 alias ll='ls -lh'
 alias lt='ls -lth'
 #alias grep='grep -iIT --color=auto'
-alias hi='history'
-. ~/.cdhist.sh
+if [ -f ~/.cdhist.sh ]; then
+    . ~/.cdhist.sh
+fi
 alias ..='cd ../ && ls'
 alias .2='cd ../../ && ls'
 alias .3='cd ../../../ && ls'
 alias .4='cd ../../../../ && ls'
 
 
-#--/ History&Shopt
+# -- History&Shopt
 HISTCONTROL=ignoreboth      # 重複履歴＆空白から始めたコマンドを保存しない
 HISTIGNORE="fg*:bg*:history*:ls::lf:la:ll:lt"   #履歴に保存しないコマンド
 HISTTIMEFORMAT='%m/%d %T '  # historyにタイムスタンプを記録
@@ -79,7 +80,7 @@ shopt -s checkwinsize   # プロンプトの表示をwindow-sizeに最適化
 shopt -s extglob        # 強力なワイルドカードの表現が使える
 
 
-#--/ Enable completion
+# -- bash completion
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
@@ -88,6 +89,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# -- git completion
 if [ -f ~/.git-completion.bash ]; then
   source ~/.git-completion.bash
 fi
@@ -100,14 +102,14 @@ GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREAM=auto
 
 
-#--/ Function 'ss'
+# -- Function 'ss'
 mydef_screen () {
   name=${1:-${PWD##*/}}
   screen -D -R $name
 }
 alias ss='mydef_screen'
 
-#--/ Function 'lgmi'
+# -- Function 'lgmi'
 mydef_logmiru () {
   logfile=`ls -lt *.log | awk 'NR==1' | awk '{print $NF}'`
 	less $logfile
