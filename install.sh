@@ -1,12 +1,12 @@
 #!/bin/bash
-rundir=$(cd $(dirname $0) && pwd)
-cd $rundir
+thisdir=$(cd $(dirname $0) && pwd)
+cd $thisdir
 
 echo " Now downloading..."
 # -- git-completion
-rURL=https://raw.githubusercontent.com
-curl -L ${rURL}/git/git/master/contrib/completion/git-completion.bash > .git-completion.bash
-curl -L ${rURL}/git/git/master/contrib/completion/git-prompt.sh > .git-prompt.sh
+rURL=https://raw.githubusercontent.com/git/git/master/contrib/completion
+curl -L ${rURL}/git-completion.bash > .git-completion.bash
+curl -L ${rURL}/git-prompt.sh > .git-prompt.sh
 # -- cdhist
 curl -L http://www.unixuser.org/~euske/doc/bashtips/cdhist.sh > .cdhist.sh
 
@@ -16,7 +16,7 @@ mkdir -p .vim/backup
 mkdir -p .vim/viminfo
 for f in .??*; do
     [ "$f" = ".git" ] && continue
-    ln -snfv ${rundir}/"$f" ~/
+    ln -snfv ${thisdir}/"$f" ~/
 done
 
 
