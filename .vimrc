@@ -1,11 +1,8 @@
-"======================================
-" Kotani's vimrc
-"======================================
-"             Basic
+"
+"  Kotani's vimrc
+"
+"  Basic"{{{>
 "--------------------------------------
-
-" vimrc の設定環境変数
-"let $MYVIMRC = '$HOME/.dotfiles/.vimrc'
 
 " ターミナルで256色表示
 set t_Co=256
@@ -15,7 +12,7 @@ set autoread
 set updatetime=100
 au CursorHold * checktime 
 
-" undoファイル(.xxx.un~)を作成しない(in Vim-7.4.227 or later)
+" undoファイル(.xxx.un~)を作成しない(ver. > Vim-7.4.227)
 "set noundofile
 
 " バックアップファイル(.xxx~)のパスの指定
@@ -58,19 +55,8 @@ set imsearch=0    " 検索時
 " Enable clipboad
 set clipboard=unnamedplus
 
-" RLoginでTeXするとき用
-"") 挿入モードに入る時，前回の挿入モードにおける IME の状態を復元する．
-"au BufNewFile,BufRead *\.tex  setlocal t_SI+=[<r
-"") 挿入モードを出る時，現在の IME の状態を保存し，IME をオフにする．
-"au BufNewFile,BufRead *\.tex  setlocal t_EI+=[<s[<0t
-"") Vim 終了時，IME を無効にし，無効にした状態を保存する．
-"au BufNewFile,BufRead *\.tex  setlocal t_te+=[<0t[<s
-"") ESC キーを押してから挿入モードを出るまでの時間を短くする．
-"au BufNewFile,BufRead *\.tex  setlocal ttimeoutlen=100
-
-
-"--------------------------------------
-"             Format
+"<}}}
+"  Format"{{{>
 "--------------------------------------
 
 " 0埋めの数値をインクリメントする時に10進数を使う
@@ -84,22 +70,20 @@ set autoindent
 set smartindent
 
 " デフォルトでTABキーで空白文字を挿入
-set noexpandtab
+set expandtab
 
 " http://peace-pipe.blogspot.com/2006/05/vimrc-vim.html
 set tabstop=2
 set shiftwidth=2
 set softtabstop=0
 
-" 特定のファイルタイプでTAB文字オン
+" 特定のファイルタイプ
 augroup fileTypeIndent
     autocmd!
-    autocmd BufNewFile,BufRead *\.py  setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=0
-    autocmd BufNewFile,BufRead *\.dat setlocal expandtab tabstop=8 shiftwidth=8 softtabstop=0
-    autocmd BufNewFile,BufRead *\.csv setlocal expandtab tabstop=8 shiftwidth=8 softtabstop=0
-    autocmd BufNewFile,BufRead *\.txt setlocal expandtab tabstop=8 shiftwidth=8 softtabstop=0
-    autocmd BufNewFile,BufRead *\.tsv setlocal expandtab tabstop=8 shiftwidth=8 softtabstop=0
-    autocmd BufNewFile,BufRead *\.sh  setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=0
+    autocmd BufNewFile,BufRead *\.py  setlocal et ts=4 sw=4 sts=0
+    autocmd BufNewFile,BufRead *\.dat setlocal et ts=4 sw=4 sts=0
+    autocmd BufNewFile,BufRead *\.csv setlocal et ts=4 sw=4 sts=0
+    autocmd BufNewFile,BufRead *\.sh  setlocal et ts=4 sw=4 sts=0
 augroup END
 
 " 大文字小文字を区別しない
@@ -114,12 +98,9 @@ let fortran_do_enddo=1
 let g:changelog_timeformat = "%Y-%m-%d"
 let g:changelog_username = "T. Kotani"
 
-
-
+"<}}}
+"  Look & Feel"{{{>
 "--------------------------------------
-"           Look & Feel
-"--------------------------------------
-
 
 " 構文ごとに色分け表示する
 syntax on
@@ -192,7 +173,7 @@ set wildmode=list:longest
 set nowildmenu
 
 " markerを使用した折り畳みを利用する
-"set foldmethod=marker foldmarker=[[&,&]]
+set foldmethod=marker foldmarker={{{>,<}}}
 
 " ステータスラインの項目
 "-----------------------
@@ -259,9 +240,8 @@ elseif has('win32')
     set termencoding=
 endif
 
-
-"--------------------------------------
-"           Key mapping
+"<}}}
+"  Key mapping"{{{>
 "--------------------------------------
 
 "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -359,9 +339,8 @@ nnoremap <C-J> :call ExJump()<CR>
 " run .R-script
 nnoremap <leader>rr :!Rscript --vanilla --slave %<cr>
 
-
-"--------------------------------------
-"            NeoBundle
+"<}}}
+"  Plugins"{{{>
 "--------------------------------------
 "" vim起動時のみruntimepathにneobundle.vimを追加
 "if has('vim_starting')
@@ -407,13 +386,7 @@ nnoremap <leader>rr :!Rscript --vanilla --slave %<cr>
 "  "======================================
 "
 "" 読み込んだプラグインも含め、ファイルタイプの検出、ファイルタイプ別プラグイン/インデントを有効化する
-filetype plugin indent on
+"filetype plugin indent on
 "
-"" インストールのチェック
-"NeoBundleCheck
-"
-"
-"--------------------------------------
-"
-runtime ftplugin/changelog.vim
-"runtime! userautoload/dein/*.vim
+"runtime ftplugin/changelog.vim
+""<}}}
