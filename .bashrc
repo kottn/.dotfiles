@@ -53,7 +53,7 @@ alias ll='ls -lh'
 alias lt='ls -lth'
 #alias grep='grep -iIT --color=auto'
 if [ -f ~/.cdhist.sh ]; then
-    . ~/.cdhist.sh
+    source ~/.cdhist.sh
 fi
 alias ..='cd ../ && ls'
 alias .2='cd ../../ && ls'
