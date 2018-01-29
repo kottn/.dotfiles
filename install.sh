@@ -16,6 +16,7 @@ mkdir -p .vim/backup
 mkdir -p .vim/viminfo
 for f in .??*; do
     [ "$f" = ".git" ] && continue
+    [ "$f" = ".gitignore" ] && continue
     ln -snfv ${thisdir}/"$f" ~/
 done
 
