@@ -93,7 +93,7 @@ set softtabstop=0
 
 " 特定のファイルタイプでTAB文字オン
 augroup fileTypeIndent
-"    autocmd!
+    autocmd!
     autocmd BufNewFile,BufRead *\.py  setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=0
     autocmd BufNewFile,BufRead *\.dat setlocal expandtab tabstop=8 shiftwidth=8 softtabstop=0
     autocmd BufNewFile,BufRead *\.csv setlocal expandtab tabstop=8 shiftwidth=8 softtabstop=0
@@ -206,7 +206,8 @@ set nowildmenu
   set statusline+=%h
   " プレビューウィンドウならPreviewと表示
   set statusline+=%w
-  " 右寄せ項目と左寄せ項目の区切り set statusline+=%=
+  " 右寄せ項目と左寄せ項目の区切り
+  set statusline+=%=
   " ファイルタイプ
   set statusline+=[TYPE=%Y]
   " ファイルフォーマット,ファイルエンコーディング
