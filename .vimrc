@@ -4,30 +4,23 @@
 "  Plugins"{{{>
 "--------------------------------------
 call plug#begin('~/.vim/plugged')
+
+Plug 'vim-jp/vimdoc-ja'
+  set helplang=ja
+
+" Align
 Plug 'junegunn/vim-easy-align'
+  vmap <Enter> <Plug>(EasyAlign)
+  nmap ga <Plug>(EasyAlign)
 
-" 文字列の整形（vim-easy-align）
-  " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-  "vmap <Enter> <Plug>(EasyAlign)
-  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-  "nmap ga <Plug>(EasyAlign)
-  "=== 使い方 ===
-  " 1. ビジュアル選択
-  " 2. <Enter>
-  " 3. *　を打つ（visual選択内のすべてに適用）
-  " 4. そろえたい記号（文字）を打つ
+" TeX vis
+Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
+  set conceallevel=2
+  let g:tex_conceal="abdgm"
 
-" -- Colorscheme (see http://colorswat.ch/vim)
-" hybrid
-Plug 'w0ng/vim-hybrid'
-" solarized
-Plug 'altercation/vim-colors-solarized'
-" mustang
-Plug 'croaker/mustang-vim'
-" molokai
-Plug 'tomasr/molokai'
-" iceberg
-Plug 'cocopon/iceberg.vim'
+" Color - See http://colorswat.ch/vim
+Plug 'w0ng/vim-hybrid'     " hybrid
+Plug 'cocopon/iceberg.vim' " iceberg
 
 call plug#end()
 
@@ -36,73 +29,38 @@ filetype plugin indent on
 "<}}}
 "  Basic"{{{>
 "--------------------------------------
+set t_Co=256                " ターミナルで256色表示
+set ttyfast                 " ターミナル接続の高速化
+set autoread                " 変更時に自動再読み込み
+set updatetime=100          " m秒
+au CursorHold * checktime   " updatetimeに依存
 
-" ターミナルで256色表示
-set t_Co=256
-
-" 内容が変更されたら自動的に再読み込み
-set autoread
-set updatetime=100
-au CursorHold * checktime 
-
-" undoファイル(.xxx.un~)を作成しない(ver. > Vim-7.4.227)
-"set noundofile
-
-" バックアップファイル(.xxx~)のパスの指定
-set backup
+set backup                  " .xxx~
 set backupdir=~/.vim/backup
 
-" viminfoファイルの設定 + パス及びファイル名の指定
-set viminfo='50,f1,<500,:10,h
+set viminfo='50,f1,<500,:10,h   " viminfoの設定
 set viminfo+=n~/.vim/viminfo/_viminfo
 
-" テキストの最大幅(0で自動改行の無効化)
-set textwidth=0
+set textwidth=0                 " 0:自動改行無効化
+set wrap                        " 行を折り返す
+set number                      " 行番号を表示
+set ambiwidth=double            " Unicodeで行末が変になる問題を解決
 
-" ウィンドウ幅で行を折り返す
-set wrap
-
-" デフォルトで行番号を非表示
-set number
-
-" Unicodeで行末が変になる問題を解決
-set ambiwidth=double
-
-" 行間をシームレスに移動する
-"set whichwrap=b,s,h,l,<,>,[,]
-"set nocompatible
-
-" %キーで対応する括弧に飛ぶ
-set matchpairs=(:),{:},[:],<:>
-
-" C-vの矩形選択で行末より後ろにもカーソルを置けるようにする
-set virtualedit=block
-
-" オンならインプットメソッド (IM) が全く使われなくなる（日本語が打てない）
-"set imdisable
-
-" IMEをデフォルトでオフにする(0=オフ,1=オン)
-set iminsert=0    " 挿入モード
-set imsearch=0    " 検索時
-
-" Enable clipboad
-set clipboard=unnamedplus
+set matchpairs=(:),{:},[:],<:>  " %キーで対応する括弧に飛ぶ
+set virtualedit=block           " C-v中に行末以降に移動可能
+set iminsert=0                  " IME On(1)Off(0) 挿入モード
+set imsearch=0                  " IME On(1)Off(0) 検索時
+set clipboard=unnamedplus       " Enable clipboad
+set nrformats=""                " C-A,C-Xは10進数
 
 "<}}}
 "  Format"{{{>
 "--------------------------------------
 
-" 0埋めの数値をインクリメントする時に10進数を使う
-set nrformats=""
 
-" 改行時の自動インデントを有効にする
-set autoindent
-
-" Smartにindent
-"set nosmartindent
+set autoindent   " 自動インデント
 set smartindent
-
-" デフォルトでTABキーで空白文字を挿入
+set smarttab
 set expandtab
 
 " http://peace-pipe.blogspot.com/2006/05/vimrc-vim.html
@@ -126,8 +84,12 @@ set ignorecase
 let fortran_free_source=1
 let fortran_more_precise=1
 let fortran_do_enddo=1
+let fortran_more_precise=1
+let fortran_fold=1                   " program, subroutine, module
+let fortran_fold_conditionals=0      " do, if, select-case
+let fortran_fold_multilinecomments=0 " comment > 3-lines
 
-" ChangeLog設定
+" ChangeLog
 let g:changelog_timeformat = "%Y-%m-%d"
 let g:changelog_username = "T. Kotani"
 
@@ -142,11 +104,7 @@ syntax on
 set background=dark
 "colorscheme default
 "colorscheme hybrid
-"colorscheme solarized
-"colorscheme mustang
-"colorscheme molokai
 colorscheme iceberg
-"colorscheme codeschool
 
 " コメント文の色を変更
 hi Comment cterm=Italic ctermfg=DarkGray guifg=DarkGray
@@ -155,14 +113,8 @@ hi Comment cterm=Italic ctermfg=DarkGray guifg=DarkGray
 hi Folded term=standout ctermbg=Black ctermfg=Yellow guibg=Black guifg=Yellow
 hi FoldColumn term=standout ctermbg=Black ctermfg=Yellow guibg=Black guifg=Yellow
 
-" 行を強調表示
-"set cursorline
-
-" 列を強調表示
-"set cursorcolumn
-
 " 行番号の色
-hi LineNr ctermfg=lightgray
+"hi LineNr ctermfg=lightgray
 
 " 80 column problem
 if (exists('+colorcolumn'))
@@ -178,7 +130,7 @@ hi DiffText   cterm=bold ctermfg=10 ctermbg=21
 
 " 検索結果をハイライト表示
 set hlsearch
-hi Search ctermfg=black ctermbg=100
+"hi Search ctermfg=black ctermbg=100
 
 " TAB,EOFなどを可視化
 set list
@@ -207,8 +159,9 @@ set wildmode=list:longest
 " アローキーでのディレクトリ階層の移動をしない
 set nowildmenu
 
-" markerを使用した折り畳みを利用する
+" 折り畳みを利用する
 set foldmethod=marker foldmarker={{{>,<}}}
+"set foldmethod=syntax
 
 " ステータスラインの項目
 "-----------------------
@@ -225,14 +178,14 @@ set foldmethod=marker foldmarker={{{>,<}}}
   " 右寄せ項目と左寄せ項目の区切り
   set statusline+=%=
   " ファイルタイプ
-  set statusline+=[TYPE=%Y]
+  set statusline+=[FT=%Y]
   " ファイルフォーマット,ファイルエンコーディング
   set statusline+=[FF=%{&ff},FENC=%{&fenc}]
   " スペース
   set statusline+=\ 
   set statusline+=\ 
   " 現在行の位置
-  set statusline+=%l
+  set statusline+=L%l
   " 分数の線
   set statusline+=/
   " バッファ内の総行数
@@ -244,17 +197,10 @@ set foldmethod=marker foldmarker={{{>,<}}}
   set statusline+=\ 
 
 
-" helpの日本語化(なかったら英語)
-set helplang=ja
+set lazyredraw " マクロ中に描画しない
 
 au BufRead,BufNewFile *\.md set filetype=markdown
 au BufNewfile,BufRead *\.f9* hi def link fortranExtraIntrinsic  Function
-
-"syntax on
-"filetype on
-"filetype indent on
-"filetype plugin on
-
 
 "--------------------------------------
 "          Text encoding
@@ -310,13 +256,6 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " 行の連結コマンドにてスペースを入れない（for tex日本語用）
 "noremap J gJ
-
-" サーチした検索語を画面中央に持ってくる
-"nmap n nzz
-"nmap N Nzz
-"nmap * *zz
-"nmap # #zz
-
 
 " Yを行末までのヤンクにする
 nnoremap Y y$
