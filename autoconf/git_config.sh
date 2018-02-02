@@ -1,13 +1,9 @@
 #!/bin/bash
 
 if type "git" > /dev/null 2>&1; then
-    echo "Type in your name (or github account name - e.g. 'tkotani1'):"
-    read fullname
-    echo "Type in your email (e.g. '35750723+tkotani1@users.noreply.github.com'):"
-    read email
 
-    git config --global user.name $fullname
-    git config --global user.email $email
+    git config --global user.name tkotani1
+    git config --global user.email 35750723+tkotani1@users.noreply.github.com
     git config --global core.editor 'vim -c "set fenc=utf-8"'
     git config --global color.diff auto
     git config --global color.status auto
