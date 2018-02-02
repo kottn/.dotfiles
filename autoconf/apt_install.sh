@@ -38,4 +38,5 @@ sudo apt install\
     fonts-ipaexfont\
     fonts-migmix\
     fonts-ricty-diminished\
-    terminator
+    terminator\
+    source-highlight
