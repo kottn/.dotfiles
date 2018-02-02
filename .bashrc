@@ -55,18 +55,31 @@ case "$HOSTNAME" in
           debian_chroot=$(cat /etc/debian_chroot)
         fi
         PS1="\t $HOSTNAME\[\e[${col}m\]\w\$(__git_ps1)\n\$\[\e[m\] "
-        PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+        case "$TERM" in
+        xterm*|rxvt*)
+            PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+            ;;
+        *)
+            ;;
+        esac
 ;;
     # Other
     * )
         PS1="\t $HOSTNAME\[\e[${col}m\]\w\$(__git_ps1)\n\$\[\e[m\] "
-        PS1="\[\e]0;\u@\h: \w\a\]$PS1"
+        case "$TERM" in
+        xterm*|rxvt*)
+            PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+            ;;
+        *)
+            ;;
+        esac
 ;;
 esac
 
 function ss { name=${1:-${PWD##*/}} && screen -D -R $name; }
 function rr { R --vanilla < ${1} > ${1}.log; less ${1}.log; }
-function ff { if [ ! "$1" ]; then echo 'usage: f pattern [dir ...]'; else n="*$1*"; shift; find . "$@" -name "$n"; fi }
+function ff { if [ ! "$1" ]; then echo 'usage: f pattern [dir ...]'; \
+                        else n="*$1*"; shift; find . "$@" -name "$n"; fi }
 
 alias mu='mupdf *.pdf'
 alias sc='source ~/.bashrc'
@@ -91,5 +104,4 @@ alias oo='less *.o[0-9]*'
 
 
 export OMP_NUM_THREADS=4
-
 
