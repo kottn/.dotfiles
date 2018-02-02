@@ -1,9 +1,6 @@
-# .bash_profile
-
-test -r ~/.bashrc && . ~/.bashrc
+# .profile
 
 export TERM=xterm-256color
-
 export PAGER=less
 export SCREENDIR=$HOME/.screen/sockets/$HOST
 export EDITOR=vim
@@ -29,4 +26,7 @@ export PATH=$HOME/.gem/ruby/2.3.0/bin:$PATH
 export PATH=$HOME/bin/gmsh-3.0.6-Linux64/bin:$PATH
 export PATH=/usr/lib/rstudio/bin:$PATH
 export PATH=$HOME/bin/Marp:$HOME/bin/gibo:$PATH
+
+
+test -r ~/.bashrc && . ~/.bashrc
 
