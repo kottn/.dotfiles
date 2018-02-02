@@ -13,7 +13,7 @@ echo " --- Now downloading..."
 curl -L ${rURL}/git/git/master/contrib/completion/git-completion.bash > .git-completion.bash
 curl -L ${rURL}/git/git/master/contrib/completion/git-prompt.sh > .git-prompt.sh
 # -- cdhist
-curl -L ${rURL}/euske/settings/master/bash/cdhist.sh > cdhist.sh
+curl -L ${rURL}/euske/settings/master/bash/cdhist.sh > .cdhist.sh
 # -- vim-plug
 mkdir -p .vim/autoload
 curl -L ${rURL}/junegunn/vim-plug/master/plug.vim > .vim/autoload/plug.vim
