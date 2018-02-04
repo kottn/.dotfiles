@@ -49,7 +49,7 @@ eval `dircolors ~/.colorrc`
 case "$HOSTNAME" in
     # Debian / Ubuntu
     pippen | james | rodman )
-        #eval `xset b off`
+        eval `xset b off`
 
         if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
           debian_chroot=$(cat /etc/debian_chroot)
@@ -80,6 +80,8 @@ function ss { name=${1:-${PWD##*/}} && screen -D -R $name; }
 function rr { R --vanilla < ${1} > ${1}.log; less ${1}.log; }
 function ff { if [ ! "$1" ]; then echo 'usage: f pattern [dir ...]'; \
                         else n="*$1*"; shift; find . "$@" -name "$n"; fi }
+function ee { less `ls -t ./stderr/*.e[0-9]* | head -n 1`; }
+function oo { less `ls -t ./stdout/*.o[0-9]* | head -n 1`; }
 
 alias mu='mupdf *.pdf'
 alias sc='source ~/.bashrc'
@@ -99,9 +101,6 @@ alias ..='cd ../ && ls'
 alias .2='cd ../../ && ls'
 alias .3='cd ../../../ && ls'
 alias .4='cd ../../../../ && ls'
-alias ee='less *.e[0-9]*'
-alias oo='less *.o[0-9]*'
-
 
 export OMP_NUM_THREADS=4
 

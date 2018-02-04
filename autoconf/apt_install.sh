@@ -39,4 +39,7 @@ sudo apt install\
     fonts-migmix\
     fonts-ricty-diminished\
     terminator\
-    source-highlight
+    source-highlight\
+    freerdp-x11\
+    automake\
+    cmake
