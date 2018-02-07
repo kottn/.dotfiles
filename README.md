@@ -1,10 +1,13 @@
 # dotfiles
 My dotfiles for Debian 9
 
-## install
+## Install
 ```
-git clone https://github.com/kottn/dotfiles ~/
-cd ~/dotfiles
-./install.sh
+git clone https://github.com/kottn/dotfiles ~/.dotfiles
+. ./.dotfiles/install.sh
 ```
 
+## Vim
+```
+:PlugInstall
+```
