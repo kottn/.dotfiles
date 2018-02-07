@@ -1,6 +1,6 @@
 #!/bin/bash
-thisdir=$(cd $(dirname $0) && pwd)
-cd $thisdir
+this_dir=$(cd $(dirname $0) && pwd)
+cd $this_dir
 
 mkdir -p .vim/backup
 mkdir -p .vim/viminfo
@@ -23,7 +23,7 @@ echo " --- Now linking..."
 for f in .??*; do
     [ "$f" = ".git" ] && continue
     [ "$f" = ".gitignore" ] && continue
-    ln -snfv ${thisdir}/"$f" ~/
+    ln -snfv ${this_dir}/"$f" ~/
 done
 
 
