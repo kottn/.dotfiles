@@ -83,6 +83,7 @@ function ff { if [ ! "$1" ]; then echo 'usage: f pattern [dir ...]'; \
 function ee { less `ls -t ./stderr/*.e[0-9]* | head -n 1`; }
 function oo { less `ls -t ./stdout/*.o[0-9]* | head -n 1`; }
 
+
 alias mu='mupdf *.pdf'
 alias sc='source ~/.bashrc'
 alias mv='mv -i'
@@ -96,7 +97,7 @@ alias ls='LC_ALL=C ls -FX --color=auto --show-control-chars'
 alias la='ls -a'
 alias ll='ls -lh'
 alias lt='ls -lth'
-alias grep='grep -iInT --color=auto'
+alias grep='grep -iI --color=auto'
 alias ..='cd ../ && ls'
 alias .2='cd ../../ && ls'
 alias .3='cd ../../../ && ls'

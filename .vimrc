@@ -13,8 +13,10 @@ Plug 'junegunn/vim-easy-align'
   nmap ga <Plug>(EasyAlign)
 
 " http://colorswat.ch/vim
-Plug 'w0ng/vim-hybrid'     " hybrid
-Plug 'cocopon/iceberg.vim' " iceberg
+Plug 'w0ng/vim-hybrid'              " hybrid
+Plug 'cocopon/iceberg.vim'          " iceberg
+Plug 'sjl/badwolf'                  " badwolf,goodwolf
+Plug 'endel/vim-github-colorscheme' " github
 
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
   set conceallevel=2
@@ -75,7 +77,7 @@ let fortran_free_source=1
 let fortran_more_precise=1
 let fortran_do_enddo=1
 let fortran_more_precise=1
-let fortran_fold=1                   " program, subroutine, module
+let fortran_fold=0                   " program, subroutine, module
 let fortran_fold_conditionals=0      " do, if, select-case
 let fortran_fold_multilinecomments=0 " comment > 3-lines
 
@@ -88,7 +90,7 @@ let g:changelog_username = "T. Kotani"
 syntax on
 
 set background=dark
-colorscheme iceberg    " e.g. default,hybrid,iceberg
+colorscheme iceberg " e.g. default,hybrid,iceberg,goodwolf,github
 
 hi Comment cterm=Italic ctermfg=DarkGray guifg=DarkGray
 hi Folded term=standout ctermbg=Black ctermfg=Yellow guibg=Black guifg=Yellow
@@ -143,16 +145,16 @@ augroup END
   set statusline=%F                         " バッファ内のファイルのフルパス
   set statusline+=%m                        " 修正フラグ
   set statusline+=%r                        " 読み込み専用フラグ
+  set statusline+=\ 
+  set statusline+=[%Y]                   " ファイルタイプ
   set statusline+=%h                        " ヘルプページならHELPと表示
   set statusline+=%w                        " プレビューならPreviewと表示
   set statusline+=%=                        " 右寄せ項目と左寄せ項目の区切り
-  set statusline+=[FT=%Y]                   " ファイルタイプ
-  set statusline+=[FF=%{&ff},FENC=%{&fenc}] " File format, File enc
-  set statusline+=\ 
-  set statusline+=\ 
   set statusline+=L%l                       " 現在行の位置
   set statusline+=,                         " 区切り
   set statusline+=C%v                       " 何列目にカーソルがあるか
+  set statusline+=\ 
+  set statusline+=[FF=%{&ff},FENC=%{&fenc}] " File format, File enc
   set statusline+=\ 
   set statusline+=[%P]                      " バッファ内の総行数
   set statusline+=\ 
