@@ -231,3 +231,4 @@ EXEC 01;32 # bright green
 .py 01;33
 .geo 01;33
 .plt 01;33
+.go 01;33
