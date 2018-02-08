@@ -29,4 +29,3 @@ export PATH=$HOME/bin/gmsh-3.0.6-Linux64/bin:$PATH
 export PATH=/usr/lib/rstudio/bin:$PATH
 export PATH=$HOME/bin/Marp:$HOME/bin/gibo:$PATH
 
-

@@ -7,7 +7,7 @@ git clone https://github.com/kottn/dotfiles ~/.dotfiles
 . ./.dotfiles/install.sh
 ```
 
-## Vim
+## Vim setup
 ```
 :PlugInstall
 ```
