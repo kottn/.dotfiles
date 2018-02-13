@@ -146,7 +146,7 @@ augroup END
   set statusline+=%m                        " 修正フラグ
   set statusline+=%r                        " 読み込み専用フラグ
   set statusline+=\ 
-  set statusline+=[%Y]                   " ファイルタイプ
+  set statusline+=[%Y]                      " ファイルタイプ
   set statusline+=%h                        " ヘルプページならHELPと表示
   set statusline+=%w                        " プレビューならPreviewと表示
   set statusline+=%=                        " 右寄せ項目と左寄せ項目の区切り
@@ -215,6 +215,13 @@ augroup PasteMode
   autocmd InsertLeave * set nopaste
 augroup END
 
+
+augroup KutoTen
+  autocmd!
+  au BufNewFile,BufRead *\.md  inoremap ， 、
+  au BufNewFile,BufRead *\.md  inoremap ． 。
+augroup END
+
 nnoremap <leader>++u :e ++enc=utf-8<cr>
 nnoremap <leader>++s :e ++enc=shift_jis<cr>
 nnoremap <leader>++c :e ++enc=cp932<cr>
@@ -237,5 +244,8 @@ function! ExJump()
 	exec ":" . s:njump
 endfunction
 nnoremap <C-J> :call ExJump()<CR>
+
+" emoji
+command! Emoji !chromium https://gist.github.com/rxaviers/7360908
 
 "<}}}
