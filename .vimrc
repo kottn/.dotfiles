@@ -12,6 +12,14 @@ Plug 'junegunn/vim-easy-align'
   vmap <Enter> <Plug>(EasyAlign)
   nmap ga <Plug>(EasyAlign)
 
+"let mapleader = '\'
+"Plug 'scrooloose/nerdcommenter'
+"  let g:NERDSpaceDelims = 1
+"  let g:NERDCompactSexyComs = 1
+"  let g:NERDDefaultAlign = 'left'
+"  let g:NERDCommentEmptyLines=1
+"  let g:NERDTrimTrailingWhitespace=1
+
 " http://colorswat.ch/vim
 Plug 'w0ng/vim-hybrid'              " hybrid
 Plug 'cocopon/iceberg.vim'          " iceberg
@@ -37,8 +45,8 @@ set viminfo='50,f1,<500,:10,h  " viminfoの設定
 set viminfo+=n~/.vim/viminfo/_viminfo
 
 set autoread                   " 変更時に自動再読み込み
-set updatetime=100             " ミリ秒
-au CursorHold * checktime      " utの間何もしなければautoread
+"set updatetime=100             " ミリ秒
+"au CursorHold * checktime      " utの間何もしなければautoread
 
 set textwidth=0                " 自動改行無効化(0)
 set wrap                       " 行を折り返す
