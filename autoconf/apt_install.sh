@@ -42,4 +42,5 @@ sudo apt install\
     source-highlight\
     freerdp-x11\
     automake\
-    cmake
+    cmake\
+    fonts-powerline

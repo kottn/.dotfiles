@@ -23,11 +23,14 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'w0ng/vim-hybrid'              " hybrid
 Plug 'cocopon/iceberg.vim'          " iceberg
 Plug 'sjl/badwolf'                  " badwolf,goodwolf
-Plug 'endel/vim-github-colorscheme' " github
 
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
   set conceallevel=2
   let g:tex_conceal="abdgm"
+
+" :h airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -44,8 +47,8 @@ set viminfo='50,f1,<500,:10,h  " viminfoの設定
 set viminfo+=n~/.vim/viminfo/_viminfo
 
 set autoread                   " 変更時に自動再読み込み
-"set updatetime=100             " ミリ秒
-"au CursorHold * checktime      " utの間何もしなければautoread
+set updatetime=100             " ミリ秒
+au CursorHold * checktime      " utの間何もしなければautoread
 
 set textwidth=0                " 自動改行無効化(0)
 set wrap                       " 行を折り返す
@@ -63,10 +66,10 @@ set ignorecase                 " 大文字小文字を区別しない
 "<}}}
 "  Format"{{{>
 "--------------------------------------
-set autoindent                      " 自動インデント
-set smartindent                     " 高度なインデント挿入
-set smarttab                        " 高度なタブ挿入
-set expandtab                       " Tab => Space
+set autoindent    " 自動インデント
+set smartindent   " 高度なインデント挿入
+set smarttab      " 高度なタブ挿入
+set expandtab     " Tab => Space
 
 " http://peace-pipe.blogspot.com/2006/05/vimrc-vim.html
 set tabstop=2
@@ -86,10 +89,7 @@ augroup END
 let fortran_free_source=1
 let fortran_more_precise=1
 let fortran_do_enddo=1
-let fortran_more_precise=1
-let fortran_fold=0                   " program, subroutine, module
-let fortran_fold_conditionals=0      " do, if, select-case
-let fortran_fold_multilinecomments=0 " comment > 3-lines
+"let fortran_fold=1
 
 let g:changelog_timeformat = "%Y-%m-%d"
 let g:changelog_username = "T. Kotani"
@@ -100,20 +100,32 @@ let g:changelog_username = "T. Kotani"
 syntax on
 
 set background=dark
-colorscheme iceberg " e.g. default,hybrid,iceberg,goodwolf,github
+colorscheme iceberg " e.g. default, hybrid, iceberg, goodwolf
 
+" いつでも背景透過
+hi Normal ctermbg=NONE guibg=NONE
+hi NonText ctermbg=NONE guibg=NONE
+hi SpecialKey ctermbg=NONE guibg=NONE
+hi EndOfBuffer ctermbg=NONE guibg=NONE
+hi LineNr ctermbg=NONE guibg=NONE
+hi Comment ctermbg=NONE guibg=NONE
+
+" CommentやFoldの色
 hi Comment cterm=Italic ctermfg=DarkGray guifg=DarkGray
 hi Folded term=standout ctermbg=Black ctermfg=Yellow guibg=Black guifg=Yellow
 hi FoldColumn term=standout ctermbg=Black ctermfg=Yellow guibg=Black guifg=Yellow
 
-set hlsearch           " 検索結果ハイライト
+" 検索結果の色
+set hlsearch
 hi Search ctermfg=232 ctermbg=yellow
 
-set cursorline         " カーソル位置を強調
-hi clear CursorLine    " アンダーラインは消す
+" カーソル位置は強調しアンダーラインは消す
+set cursorline
+hi clear CursorLine
 
+" 80 column problem
 if (exists('+colorcolumn'))
-    set colorcolumn=81 " 80 column problem
+    set colorcolumn=81
     hi ColorColumn ctermbg=235
 endif
 
@@ -150,24 +162,25 @@ augroup fileTypeFeel
     au BufNewFile,BufRead *\.md  set filetype=markdown
 augroup END
 
+
 " ステータスラインの項目
 "-----------------------
-  set statusline=%F                         " バッファ内のファイルのフルパス
-  set statusline+=%m                        " 修正フラグ
-  set statusline+=%r                        " 読み込み専用フラグ
-  set statusline+=\ 
-  set statusline+=[%Y]                      " ファイルタイプ
-  set statusline+=%h                        " ヘルプページならHELPと表示
-  set statusline+=%w                        " プレビューならPreviewと表示
-  set statusline+=%=                        " 右寄せ項目と左寄せ項目の区切り
-  set statusline+=L%l                       " 現在行の位置
-  set statusline+=,                         " 区切り
-  set statusline+=C%v                       " 何列目にカーソルがあるか
-  set statusline+=\ 
-  set statusline+=[FF=%{&ff},FENC=%{&fenc}] " File format, File enc
-  set statusline+=\ 
-  set statusline+=[%P]                      " バッファ内の総行数
-  set statusline+=\ 
+"  set statusline=%F                         " バッファ内のファイルのフルパス
+"  set statusline+=%m                        " 修正フラグ
+"  set statusline+=%r                        " 読み込み専用フラグ
+"  set statusline+=\ 
+"  set statusline+=[%Y]                      " ファイルタイプ
+"  set statusline+=%h                        " ヘルプページならHELPと表示
+"  set statusline+=%w                        " プレビューならPreviewと表示
+"  set statusline+=%=                        " 右寄せ項目と左寄せ項目の区切り
+"  set statusline+=L%l                       " 現在行の位置
+"  set statusline+=,                         " 区切り
+"  set statusline+=C%v                       " 何列目にカーソルがあるか
+"  set statusline+=\ 
+"  set statusline+=[FF=%{&ff},FENC=%{&fenc}] " File format, File enc
+"  set statusline+=\ 
+"  set statusline+=[%P]                      " バッファ内の総行数
+"  set statusline+=\ 
 
 "<}}}
 "  Text encoding"{{{>

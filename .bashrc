@@ -80,11 +80,10 @@ function ss { name=${1:-${PWD##*/}} && screen -D -R $name; }
 function rr { R --vanilla < ${1} > ${1}.log; less ${1}.log; }
 function ff { if [ ! "$1" ]; then echo 'usage: f pattern [dir ...]'; \
                         else n="*$1*"; shift; find . "$@" -name "$n"; fi }
-function ee { less `ls -t ./stderr/*.e[0-9]* | head -n 1`; }
-function oo { less `ls -t ./stdout/*.o[0-9]* | head -n 1`; }
+function ee { less  `ls -t ./stderr/*.e[0-9]* | head -n 1`; }
+function oo { less  `ls -t ./stdout/*.o[0-9]* | head -n 1`; }
+function mu { mupdf `ls -t *.pdf | head -n 1`; }
 
-
-alias mu='mupdf *.pdf'
 alias sc='source ~/.bashrc'
 alias mv='mv -i'
 alias cp='cp -i'
