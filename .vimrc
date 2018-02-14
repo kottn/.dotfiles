@@ -12,13 +12,12 @@ Plug 'junegunn/vim-easy-align'
   vmap <Enter> <Plug>(EasyAlign)
   nmap ga <Plug>(EasyAlign)
 
-"let mapleader = '\'
-"Plug 'scrooloose/nerdcommenter'
-"  let g:NERDSpaceDelims = 1
-"  let g:NERDCompactSexyComs = 1
-"  let g:NERDDefaultAlign = 'left'
-"  let g:NERDCommentEmptyLines=1
-"  let g:NERDTrimTrailingWhitespace=1
+Plug 'scrooloose/nerdcommenter'
+  let g:NERDSpaceDelims = 1
+  let g:NERDCompactSexyComs = 1
+  let g:NERDDefaultAlign = 'left'
+  let g:NERDCommentEmptyLines = 1
+  let g:NERDTrimTrailingWhitespace = 1
 
 " http://colorswat.ch/vim
 Plug 'w0ng/vim-hybrid'              " hybrid
@@ -74,11 +73,14 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=0
 augroup fileTypeIndent
+    filetype plugin indent on
     autocmd!
-    au BufNewFile,BufRead *\.py  setlocal et ts=4 sw=4 sts=0
-    au BufNewFile,BufRead *\.dat setlocal et ts=4 sw=4 sts=0
-    au BufNewFile,BufRead *\.csv setlocal et ts=4 sw=4 sts=0
-    au BufNewFile,BufRead *\.sh  setlocal et ts=4 sw=4 sts=0
+    au BufNewFile,BufRead *\.py   setlocal et ts=4 sw=4 sts=0
+    au BufNewFile,BufRead *\.dat  setlocal et ts=4 sw=4 sts=0
+    au BufNewFile,BufRead *\.csv  setlocal et ts=4 sw=4 sts=0
+    au BufNewFile,BufRead *\.sh   setlocal et ts=4 sw=4 sts=0
+    au BufNewFile,BufRead *\.html setlocal et ts=4 sw=4 sts=0
+    au BufNewFile,BufRead *\.css  setlocal et ts=4 sw=4 sts=0
 augroup END
 
 let fortran_free_source=1
@@ -256,4 +258,5 @@ nnoremap <C-J> :call ExJump()<CR>
 " emoji
 command! Emoji !chromium https://gist.github.com/rxaviers/7360908
 
+filetype plugin indent on
 "<}}}
