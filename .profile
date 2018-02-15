@@ -29,6 +29,7 @@ export PATH=$HOME/share/gmsh-3.0.6-Linux64/bin:$PATH
 
 export PATH=$HOME/share/Marp:$PATH
 export PATH=$HOME/share/gibo:$PATH
+export PATH=$HOME/share/Shiba-linux-x64:$PATH
 
 # golang
 export PATH=$PATH:/usr/local/go/bin
