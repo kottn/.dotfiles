@@ -271,5 +271,8 @@ nnoremap <C-J> :call ExJump()<CR>
 " emoji
 command! Emoji !chromium https://gist.github.com/rxaviers/7360908
 
+" Shiba
+command! Shiba !Shiba --detach % &
+
 filetype plugin indent on
 "<}}}
