@@ -160,6 +160,8 @@ augroup fileTypeFeel
     au BufNewfile,BufRead *\.f9* set foldmethod=syntax
     au BufNewfile,BufRead *\.f9* hi  def link fortranExtraIntrinsic Function
     au BufNewFile,BufRead *\.md  set filetype=markdown
+    au BufNewFile,BufRead *\.md  hi  ColorColumn ctermbg=NONE
+    au BufNewFile,BufRead *\.py  hi  ColorColumn ctermbg=NONE
 augroup END
 
 
@@ -269,10 +271,10 @@ endfunction
 nnoremap <C-J> :call ExJump()<CR>
 
 " emoji
-command! Emoji !chromium https://gist.github.com/rxaviers/7360908
+command! Emoji !firefox https://www.webpagefx.com/tools/emoji-cheat-sheet/
 
-" Shiba
-command! Shiba !Shiba --detach % &
+" Markdown view
+command! Thunar !thunar %:h
 
 filetype plugin indent on
 "<}}}
