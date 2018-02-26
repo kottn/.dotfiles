@@ -28,10 +28,6 @@ Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
   set conceallevel=2
   let g:tex_conceal="abdgm"
 
-" :h airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
 call plug#end()
 
 filetype plugin indent on
@@ -167,22 +163,22 @@ augroup END
 
 " ステータスラインの項目
 "-----------------------
-"  set statusline=%F                         " バッファ内のファイルのフルパス
-"  set statusline+=%m                        " 修正フラグ
-"  set statusline+=%r                        " 読み込み専用フラグ
-"  set statusline+=\ 
-"  set statusline+=[%Y]                      " ファイルタイプ
-"  set statusline+=%h                        " ヘルプページならHELPと表示
-"  set statusline+=%w                        " プレビューならPreviewと表示
-"  set statusline+=%=                        " 右寄せ項目と左寄せ項目の区切り
-"  set statusline+=L%l                       " 現在行の位置
-"  set statusline+=,                         " 区切り
-"  set statusline+=C%v                       " 何列目にカーソルがあるか
-"  set statusline+=\ 
-"  set statusline+=[FF=%{&ff},FENC=%{&fenc}] " File format, File enc
-"  set statusline+=\ 
-"  set statusline+=[%P]                      " バッファ内の総行数
-"  set statusline+=\ 
+  set statusline=%F                         " バッファ内のファイルのフルパス
+  set statusline+=%m                        " 修正フラグ
+  set statusline+=%r                        " 読み込み専用フラグ
+  set statusline+=\ 
+  set statusline+=[%Y]                      " ファイルタイプ
+  set statusline+=%h                        " ヘルプページならHELPと表示
+  set statusline+=%w                        " プレビューならPreviewと表示
+  set statusline+=%=                        " 右寄せ項目と左寄せ項目の区切り
+  set statusline+=L%l                       " 現在行の位置
+  set statusline+=,                         " 区切り
+  set statusline+=C%v                       " 何列目にカーソルがあるか
+  set statusline+=\ 
+  set statusline+=[FF=%{&ff},FENC=%{&fenc}] " File format, File enc
+  set statusline+=\ 
+  set statusline+=[%P]                      " バッファ内の総行数
+  set statusline+=\ 
 
 "<}}}
 "  Text encoding"{{{>

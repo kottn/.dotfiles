@@ -32,9 +32,8 @@ echo " Run 'autoconf/*.sh'? (y|n):"
 read ans
 if [ $ans == "y" ]; then
     echo " --- Now installing..."
-    . ./autoconf/apt_install.sh
     . ./autoconf/git_config.sh
-    . ./autoconf/git_clone.sh
+    . ./autoconf/apt_install.sh
 fi
 
 echo " Done!"
