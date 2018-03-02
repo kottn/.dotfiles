@@ -7,7 +7,7 @@ case $- in
       *) return;;
 esac
 
-HOST_COLOR=${HOST_COLOR:-blue}
+HOST_COLOR=${HOST_COLOR:-pink}
 case "$HOST_COLOR" in
    black*) col=30;;   red*) col=31;; green*) col=32;;
   yellow*) col=33;;  blue*) col=34;;  pink*) col=35;;
@@ -48,7 +48,7 @@ eval `dircolors ~/.colorrc`
 
 case "$HOSTNAME" in
     # Debian / Ubuntu
-    pippen | james | rodman )
+    pippen )
         eval `xset b off`
 
         if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -110,4 +110,3 @@ alias .4='cd ../../../../ && ls'
 alias tree='tree --charset=C -FN'
 
 export OMP_NUM_THREADS=4
-
