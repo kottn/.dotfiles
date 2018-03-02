@@ -7,12 +7,7 @@ case $- in
       *) return;;
 esac
 
-[ $HOSTNAME == "pippen"   ] && HOST_COLOR=${HOST_COLOR:-blue}
-[ $HOSTNAME == "rodman"   ] && HOST_COLOR=${HOST_COLOR:-pink}
-[ $HOSTNAME == "lebron"   ] && HOST_COLOR=${HOST_COLOR:-pink}
-[ $HOSTNAME == "eggplant" ] && HOST_COLOR=${HOST_COLOR:-yellow}
-[ $HOSTNAME == "pea"      ] && HOST_COLOR=${HOST_COLOR:-cyan}
-[ $HOSTNAME == "kimchi"   ] && HOST_COLOR=${HOST_COLOR:-red}
+HOST_COLOR=${HOST_COLOR:-blue}
 case "$HOST_COLOR" in
    black*) col=30;;   red*) col=31;; green*) col=32;;
   yellow*) col=33;;  blue*) col=34;;  pink*) col=35;;
@@ -67,6 +62,11 @@ case "$HOSTNAME" in
         *)
             ;;
         esac
+
+        alias dm='tw -dm'
+        function gggterra { tw --dm:to=gggterra "${1}"; }
+        function eddyrhcp { tw --dm:to=eddyrhcp "${1}"; }
+
 ;;
     # Other
     * )
@@ -88,6 +88,7 @@ function ff { if [ ! "$1" ]; then echo 'usage: f pattern [dir ...]'; \
 function ee { less  `ls -t ./stderr/*.e[0-9]* | head -n 1`; }
 function oo { less  `ls -t ./stdout/*.o[0-9]* | head -n 1`; }
 function mu { mupdf `ls -t *.pdf | head -n 1`; }
+
 
 alias sc='source ~/.bashrc'
 alias mv='mv -i'

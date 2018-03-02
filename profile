@@ -1,5 +1,4 @@
 # .profile
-
 test -r ~/.bashrc && . ~/.bashrc
 
 export TERM=xterm-256color
@@ -13,17 +12,25 @@ export PATH=$HOME/bin:$PATH
 export PATH=$HOME/local/bin:$PATH
 
 # pyenv
-export PYENV_ROOT="$HOME/.pyenv"
+export PYENV_ROOT="${HOME}/.pyenv"
 if [ -d "${PYENV_ROOT}" ]; then
-  export PATH="$PYENV_ROOT/bin:$PATH"
+  export PATH="${PYENV_ROOT}/bin:${PATH}"
   eval "$(pyenv init -)"
 fi
-
 # for pyenv + Anaconda(base env)
 export PATH="$PYENV_ROOT/versions/anaconda3-5.1.0/bin/:$PATH"
 
+
+# rbenv
+export RBENV_ROOT="${HOME}/.rbenv"
+if [ -d "${RBENV_ROOT}" ]; then
+  export PATH="${RBENV_ROOT}/bin:${PATH}"
+  eval "$(rbenv init -)"
+fi
+
+
 # ruby
-export PATH=$HOME/.gem/ruby/2.3.0/bin:$PATH
+#export PATH=$HOME/.gem/ruby/2.3.0/bin:$PATH
 
 # rstudio
 export PATH=/usr/lib/rstudio/bin:$PATH
@@ -42,5 +49,4 @@ export PATH=$HOME/share/Marp:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/.go
 export PATH=$GOPATH/bin:$PATH
-
 

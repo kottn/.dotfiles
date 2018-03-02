@@ -3,11 +3,9 @@ My dotfiles for Debian 9
 
 ## Install
 ```
-git clone https://github.com/kottn/dotfiles ~/.dotfiles
-. ./.dotfiles/install.sh
+cd; git clone https://github.com/kottn/dotfiles && cd dotfiles; make
 ```
-
-## Vim setup
+Then start up Vim and type the following:
 ```
 :PlugInstall
 ```
