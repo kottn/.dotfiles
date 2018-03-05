@@ -50,5 +50,6 @@ export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/.go
 export PATH=$GOPATH/bin:$PATH
 
-[ $HOSTNAME == rodman ] && source ~/.bashrc_wsl
+[ $HOSTNAME == "rodman" ] && source ~/.bashrc_wsl
+[ $HOSTNAME == "lebron" ] && source ~/.bashrc_wsl
 

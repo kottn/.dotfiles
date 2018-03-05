@@ -8,6 +8,11 @@ case $- in
 esac
 
 HOST_COLOR=${HOST_COLOR:-pink}
+[ $HOSTNAME == "rodman"   ] && HOST_COLOR=${HOST_COLOR:-pink}
+[ $HOSTNAME == "lebron"   ] && HOST_COLOR=${HOST_COLOR:-pink}
+[ $HOSTNAME == "eggplant" ] && HOST_COLOR=${HOST_COLOR:-yellow}
+[ $HOSTNAME == "pea"      ] && HOST_COLOR=${HOST_COLOR:-cyan}
+[ $HOSTNAME == "kimchi"   ] && HOST_COLOR=${HOST_COLOR:-red}
 case "$HOST_COLOR" in
    black*) col=30;;   red*) col=31;; green*) col=32;;
   yellow*) col=33;;  blue*) col=34;;  pink*) col=35;;

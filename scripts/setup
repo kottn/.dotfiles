@@ -13,7 +13,14 @@ function ask() {
 if ask "apt install, install, install...?"; then
     sudo apt update && apt upgrade
     sudo apt --version
-    sudo apt install $(cat ~/dotfiles/scripts/apt-pkg-list)
+    case $HOSTNAME in 
+      rodman | lebron )
+        echo "road scripts/pkg-list-wsl..."
+        sudo apt install $(cat ~/dotfiles/scripts/pkg-list-wsl) ;;
+      * )
+        echo "road scripts/pkg-list-debian..."
+        sudo apt install $(cat ~/dotfiles/scripts/pkg-list-debian) ;;
+    esac
 fi
 
 # Symlinks
