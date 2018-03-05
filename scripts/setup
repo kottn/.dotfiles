@@ -10,14 +10,16 @@ function ask() {
 }
 
 # Apt packages
-if ask "apt install install install...?"; then
+if ask "apt install, install, install...?"; then
     sudo apt update && apt upgrade
     sudo apt --version
     sudo apt install $(cat ~/dotfiles/scripts/apt-pkg-list)
 fi
 
 # Symlinks
-~/dotfiles/scripts/symlinks
+if ask "dotfiles link, link, link...?"; then
+  ~/dotfiles/scripts/symlinks
+fi
 
 # Git config
 if ask "Git config?"; then
@@ -30,7 +32,7 @@ if ask "Git config?"; then
 fi
 
 # Git clone
-if ask "Git clone clone clone...?"; then
+if ask "Git clone, clone, clone...?"; then
   mkdir -p ~/share && cd ~/share
   git clone $(cat ~/dotfiles/scripts/git-clone-list)
 fi
