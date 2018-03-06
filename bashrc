@@ -7,12 +7,13 @@ case $- in
       *) return;;
 esac
 
-HOST_COLOR=${HOST_COLOR:-pink}
-[ $HOSTNAME == "rodman"   ] && HOST_COLOR=${HOST_COLOR:-pink}
-[ $HOSTNAME == "lebron"   ] && HOST_COLOR=${HOST_COLOR:-pink}
-[ $HOSTNAME == "eggplant" ] && HOST_COLOR=${HOST_COLOR:-yellow}
-[ $HOSTNAME == "pea"      ] && HOST_COLOR=${HOST_COLOR:-cyan}
-[ $HOSTNAME == "kimchi"   ] && HOST_COLOR=${HOST_COLOR:-red}
+[ $HOSTNAME == "rodman"   ] && HOST_COLOR="pink"
+[ $HOSTNAME == "lebron"   ] && HOST_COLOR="pink"
+[ $HOSTNAME == "pippen"   ] && HOST_COLOR="blue"
+[ $HOSTNAME == "eggplant" ] && HOST_COLOR="yellow"
+[ $HOSTNAME == "pea"      ] && HOST_COLOR="cyan"
+[ $HOSTNAME == "kimchi"   ] && HOST_COLOR="red"
+HOST_COLOR=${HOST_COLOR:-white}
 case "$HOST_COLOR" in
    black*) col=30;;   red*) col=31;; green*) col=32;;
   yellow*) col=33;;  blue*) col=34;;  pink*) col=35;;
@@ -53,7 +54,7 @@ eval `dircolors ~/.colorrc`
 
 case "$HOSTNAME" in
     # Debian / Ubuntu
-    pippen )
+    pippen)
         eval `xset b off`
 
         if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -68,13 +69,13 @@ case "$HOSTNAME" in
             ;;
         esac
 
-        alias dm='tw -dm'
+        function dmwatch { watch -t -n 30  "tw -dm | tail -n 4"; }
+        function tlwatch { watch -t -n 180 "tw -tl | tail -n 5"; }
         function gggterra { tw --dm:to=gggterra "${1}"; }
         function eddyrhcp { tw --dm:to=eddyrhcp "${1}"; }
-
 ;;
     # Other
-    * )
+    *)
         PS1="\t $HOSTNAME\[\e[${col}m\]\w\$(__git_ps1)\n\$\[\e[m\] "
         case "$TERM" in
         xterm*|rxvt*)
@@ -93,7 +94,6 @@ function ff { if [ ! "$1" ]; then echo 'usage: f pattern [dir ...]'; \
 function ee { less  `ls -t ./stderr/*.e[0-9]* | head -n 1`; }
 function oo { less  `ls -t ./stdout/*.o[0-9]* | head -n 1`; }
 function mu { mupdf `ls -t *.pdf | head -n 1`; }
-
 
 alias sc='source ~/.bashrc'
 alias mv='mv -i'
