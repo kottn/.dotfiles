@@ -8,7 +8,7 @@ mkdir -p vim/viminfo
 rURL=https://raw.githubusercontent.com
 
 echo ""
-echo " --- Now downloading..."
+echo " --- Now Downloading..."
 # -- git-completion
 curl -LO ${rURL}/git/git/master/contrib/completion/git-completion.bash
 curl -LO ${rURL}/git/git/master/contrib/completion/git-prompt.sh
@@ -19,7 +19,7 @@ mkdir -p vim/autoload
 curl -L  ${rURL}/junegunn/vim-plug/master/plug.vim > vim/autoload/plug.vim
 
 echo ""
-echo " --- Now linking..."
+echo " --- Now Linking..."
 for f in *; do
     [ "$f" = ".git" ] && continue
     [ "$f" = ".gitignore" ] && continue
