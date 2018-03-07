@@ -69,8 +69,8 @@ case "$HOSTNAME" in
             ;;
         esac
 
-        function dmwatch { watch -t -n 30  "tw -dm | tail -n 4"; }
-        function tlwatch { watch -t -n 180 "tw -tl | tail -n 5"; }
+        function tlwatch { watch -t -n 180 "tw -tl | tail -n 10"; }
+        function dmwatch { watch -t -n 20  "tw -dm | tail -n 5 "; }
         function gggterra { tw --dm:to=gggterra "${1}"; }
         function eddyrhcp { tw --dm:to=eddyrhcp "${1}"; }
 ;;
