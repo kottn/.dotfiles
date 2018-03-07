@@ -28,10 +28,6 @@ if [ -d "${RBENV_ROOT}" ]; then
   eval "$(rbenv init -)"
 fi
 
-
-# ruby
-#export PATH=$HOME/.gem/ruby/2.3.0/bin:$PATH
-
 # rstudio
 export PATH=/usr/lib/rstudio/bin:$PATH
 
