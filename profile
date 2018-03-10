@@ -5,7 +5,7 @@ export TERM=xterm-256color
 export PAGER=less
 export SCREENDIR=$HOME/.screen/sockets/$HOST
 export EDITOR=vim
-export LESS='-iMQ -W -x2 -F -X'
+export LESS='-iMQ -x2 -FX'
 
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/local/bin:$PATH
