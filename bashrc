@@ -54,8 +54,10 @@ eval `dircolors ~/.colorrc`
 
 case "$HOSTNAME" in
     # Debian / Ubuntu
-    pippen)
-        eval `xset b off`
+    pippen | rodman | lebron )
+        if type "xset" > /dev/null 2>&1; then
+          eval `xset b off`
+        fi
 
         if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
           debian_chroot=$(cat /etc/debian_chroot)
@@ -69,10 +71,12 @@ case "$HOSTNAME" in
             ;;
         esac
 
-        function tlwatch { watch -t -n 180 "tw -tl | tail -n 10"; }
-        function dmwatch { watch -t -n 20  "tw -dm | tail -n 5 "; }
-        function gggterra { tw --dm:to=gggterra "${1}"; }
-        function eddyrhcp { tw --dm:to=eddyrhcp "${1}"; }
+        if type "tw" > /dev/null 2>&1; then
+          function tlwatch { watch -t -n 180 "tw -tl | tail -n 10"; }
+          function dmwatch { watch -t -n 20  "tw -dm | tail -n 5 "; }
+          function gggterra { tw --dm:to=gggterra "${1}"; }
+          function eddyrhcp { tw --dm:to=eddyrhcp "${1}"; }
+        fi
 ;;
     # Other
     *)

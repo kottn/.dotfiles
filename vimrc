@@ -12,6 +12,7 @@ Plug 'junegunn/vim-easy-align'
   vmap <Enter> <Plug>(EasyAlign)
   nmap ga <Plug>(EasyAlign)
 
+" For comment
 Plug 'scrooloose/nerdcommenter'
   let g:NERDSpaceDelims = 1
   let g:NERDCompactSexyComs = 1
@@ -23,10 +24,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'w0ng/vim-hybrid'              " hybrid
 Plug 'cocopon/iceberg.vim'          " iceberg
 Plug 'sjl/badwolf'                  " badwolf,goodwolf
-
-Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
-  set conceallevel=2
-  let g:tex_conceal="abdgm"
 
 " Emoji
 Plug 'mattn/emoji-vim'
