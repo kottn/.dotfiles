@@ -38,29 +38,30 @@ filetype plugin indent on
 "<}}}
 "  Basic"{{{>
 "--------------------------------------
-set t_Co=256                   " ターミナルで256色表示
-set ttyfast                    " ターミナル接続の高速化
-set backup                     " .xxx~
-set backupdir=~/.vim/backup
-set viminfo='50,f1,<500,:10,h  " viminfoの設定
-set viminfo+=n~/.vim/viminfo/_viminfo
+set t_Co=256                          " ターミナルで256色表示
+set ttyfast                           " ターミナル接続の高速化
+set vb t_vb=                          " ビープ音を消す
+set backup                            " .xxx~
+set backupdir=~/.vim/backup           " backupの場所
+set viminfo='50,f1,<500,:10,h         " viminfoの設定
+set viminfo+=n~/.vim/viminfo/_viminfo " viminfoの場所
 
-set autoread                   " 変更時に自動再読み込み
-set updatetime=100             " ミリ秒
-au CursorHold * checktime      " utの間何もしなければautoread
+set autoread                          " 変更時に自動再読み込み
+set updatetime=100                    " ミリ秒
+au CursorHold * checktime             " utの間何もしなければautoread
 
-set textwidth=0                " 自動改行無効化(0)
-set wrap                       " 行を折り返す
-set number                     " 行番号を表示
-set ambiwidth=double           " Unicodeで行末が変になる問題を解決
+set textwidth=0                       " 自動改行無効化(0)
+set wrap                              " 行を折り返す
+set number                            " 行番号を表示
+set ambiwidth=double                  " Unicodeで行末が変になる問題を解決
 
-set matchpairs=(:),{:},[:],<:> " %キーで対応する括弧に飛ぶ
-set virtualedit=block          " C-v中に行末以降に移動可能
-set iminsert=0                 " Off&Off 挿入モード
-set imsearch=0                 " Off&Off 検索時
-set clipboard=unnamedplus      " Enable clipboad
-set nrformats=""               " C-a,C-xは10進数
-set ignorecase                 " 大文字小文字を区別しない
+set matchpairs=(:),{:},[:],<:>        " %キーで対応する括弧に飛ぶ
+set virtualedit=block                 " C-v中に行末以降に移動可能
+set iminsert=0                        " Off&Off 挿入モード
+set imsearch=0                        " Off&Off 検索時
+set clipboard=unnamedplus             " Enable clipboad
+set nrformats=""                      " C-a,C-xは10進数
+set ignorecase                        " 大文字小文字を区別しない
 
 "<}}}
 "  Format"{{{>
@@ -99,7 +100,7 @@ let g:changelog_username = "T. Kotani"
 syntax on
 
 set background=dark
-colorscheme iceberg " e.g. default, hybrid, iceberg, goodwolf
+colorscheme iceberg  " e.g. default, hybrid, iceberg, goodwolf
 
 " いつでも背景透過
 hi Normal ctermbg=NONE guibg=NONE
@@ -115,7 +116,7 @@ hi Folded term=standout ctermbg=Black ctermfg=Yellow guibg=Black guifg=Yellow
 hi FoldColumn term=standout ctermbg=Black ctermfg=Yellow guibg=Black guifg=Yellow
 
 " Visual選択の色
-hi Visual cterm=bold ctermfg=NONE ctermbg=DarkBlue
+hi Visual ctermfg=White ctermbg=66CCCC
 
 " 検索結果の色
 set hlsearch
@@ -169,6 +170,7 @@ augroup END
 
 " ステータスラインの項目
 "-----------------------
+hi StatusLine ctermfg=White ctermbg=66CCCC
   set statusline=%F                         " バッファ内のファイルのフルパス
   set statusline+=%m                        " 修正フラグ
   set statusline+=%r                        " 読み込み専用フラグ

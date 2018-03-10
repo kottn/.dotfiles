@@ -1,12 +1,11 @@
 # .profile
 test -r ~/.bashrc && . ~/.bashrc
-
+export LANG=ja_JP.utf-8
 export TERM=xterm-256color
 export PAGER=less
 export SCREENDIR=$HOME/.screen/sockets/$HOST
 export EDITOR=vim
-export LESS='-I -R -M -W -x2 -F -X'
-export LESSOPEN='| src-hilite-lesspipe.sh %s'
+export LESS='-iMQ -W -x2 -F -X'
 
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/local/bin:$PATH
