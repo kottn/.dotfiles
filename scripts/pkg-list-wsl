@@ -11,9 +11,6 @@ gnuplot5-x11
 ristretto
 perl
 sshfs
-ffmpeg
-mpi-default-bin
-paraview
 a2ps
 e2ps
 mupdf
