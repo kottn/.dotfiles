@@ -1,8 +1,6 @@
 build-essential
 vim-nox
 gfortran
-python
-python3
 git
 gitk
 manpages-ja
@@ -10,7 +8,6 @@ manpages-ja-dev
 tree
 bash-completion
 gnuplot5-x11
-imagemagick
 ristretto
 perl
 sshfs
@@ -19,13 +16,9 @@ mpi-default-bin
 paraview
 a2ps
 e2ps
-evince
 mupdf
 nkf
-fonts-ipaexfont
 fonts-migmix
-fonts-ricty-diminished
 automake
 cmake
-firefox
 x11-apps
