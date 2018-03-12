@@ -36,6 +36,8 @@ if ask "Git config?"; then
   git config --global color.diff auto
   git config --global color.status auto
   git config --global color.branch auto
+  git config --global core.pager "less -cm"
+  git config --global core.quotepath false
 fi
 
 # Git clone

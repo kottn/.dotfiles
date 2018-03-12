@@ -1,6 +1,7 @@
 # .profile
 test -r ~/.bashrc && . ~/.bashrc
 export LANG=ja_JP.utf-8
+#export LANG=en_US.utf-8
 export TERM=xterm-256color
 export PAGER=less
 export SCREENDIR=$HOME/.screen/sockets/$HOST
