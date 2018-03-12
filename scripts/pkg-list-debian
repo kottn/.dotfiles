@@ -16,6 +16,7 @@ gnuplot5-x11
 imagemagick
 ristretto
 perl
+ssh
 sshfs
 ffmpeg
 mpi-default-bin
@@ -40,3 +41,4 @@ source-highlight
 freerdp-x11
 automake
 cmake
+curl
