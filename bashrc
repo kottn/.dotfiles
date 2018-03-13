@@ -71,12 +71,10 @@ case "$HOSTNAME" in
             ;;
         esac
 
-        if type "tw" > /dev/null 2>&1; then
-          function tlwatch { watch -t -n 180 "tw -tl | tail -n 10"; }
-          function dmwatch { watch -t -n 20  "tw -dm | tail -n 5 "; }
-          function gggterra { tw --dm:to=gggterra "${1}"; }
-          function eddyrhcp { tw --dm:to=eddyrhcp "${1}"; }
-        fi
+        function tlwatch { watch -t -n 180 "tw -tl | tail -n 15"; }
+        function dmwatch { watch -t -n 20  "tw -dm | tail -n 5 "; }
+        function gggterra { tw --dm:to=gggterra "${1}"; }
+        function eddyrhcp { tw --dm:to=eddyrhcp "${1}"; }
 ;;
     # Other
     *)
