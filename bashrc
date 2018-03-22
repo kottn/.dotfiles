@@ -7,17 +7,17 @@ case $- in
       *) return;;
 esac
 
-[ $HOSTNAME == "rodman"   ] && HOST_COLOR="white"
-[ $HOSTNAME == "lebron"   ] && HOST_COLOR="white"
+[ $HOSTNAME == "rodman"   ] && HOST_COLOR="green"
+[ $HOSTNAME == "lebron"   ] && HOST_COLOR="green"
 [ $HOSTNAME == "pippen"   ] && HOST_COLOR="blue"
 [ $HOSTNAME == "eggplant" ] && HOST_COLOR="yellow"
 [ $HOSTNAME == "pea"      ] && HOST_COLOR="cyan"
 [ $HOSTNAME == "kimchi"   ] && HOST_COLOR="red"
 HOST_COLOR=${HOST_COLOR:-white}
 case "$HOST_COLOR" in
-   black*) col=30;;   red*) col=31;; green*) col=32;;
-  yellow*) col=33;;  blue*) col=34;;  pink*) col=35;;
-    cyan*) col=36;; white*) col=37;;      *) col=1;;
+   black*) col=30;;   red*) col=31;;  green*) col=32;;
+  yellow*) col=33;;  blue*) col=34;;   pink*) col=35;;
+    cyan*) col=36;;  gray*) col=37;;       *) col=39;;
 esac
 
 test -r ~/.git-completion.bash && source ~/.git-completion.bash
@@ -62,7 +62,7 @@ case "$HOSTNAME" in
         if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
           debian_chroot=$(cat /etc/debian_chroot)
         fi
-        PS1="\t $HOSTNAME \[\e[${col}m\]\w\$(__git_ps1)\n\$\[\e[m\] "
+        PS1="\t $HOSTNAME\[\e[${col}m\]\w\$(__git_ps1)\n\$\[\e[m\] "
         case "$TERM" in
         xterm*|rxvt*)
             PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
@@ -78,7 +78,7 @@ case "$HOSTNAME" in
 ;;
     # Other
     *)
-        PS1="\t $HOSTNAME \[\e[${col}m\]\w\$(__git_ps1)\n\$\[\e[m\] "
+        PS1="\t $HOSTNAME\[\e[${col}m\]\w\$(__git_ps1)\n\$\[\e[m\] "
         case "$TERM" in
         xterm*|rxvt*)
             PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
