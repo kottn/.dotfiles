@@ -7,8 +7,8 @@ case $- in
       *) return;;
 esac
 
-[ $HOSTNAME == "rodman"   ] && HOST_COLOR="pink"
-[ $HOSTNAME == "lebron"   ] && HOST_COLOR="pink"
+[ $HOSTNAME == "rodman"   ] && HOST_COLOR="white"
+[ $HOSTNAME == "lebron"   ] && HOST_COLOR="white"
 [ $HOSTNAME == "pippen"   ] && HOST_COLOR="blue"
 [ $HOSTNAME == "eggplant" ] && HOST_COLOR="yellow"
 [ $HOSTNAME == "pea"      ] && HOST_COLOR="cyan"
@@ -62,7 +62,7 @@ case "$HOSTNAME" in
         if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
           debian_chroot=$(cat /etc/debian_chroot)
         fi
-        PS1="\t $HOSTNAME\[\e[${col}m\]\w\$(__git_ps1)\n\$\[\e[m\] "
+        PS1="\t $HOSTNAME \[\e[${col}m\]\w\$(__git_ps1)\n\$\[\e[m\] "
         case "$TERM" in
         xterm*|rxvt*)
             PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
@@ -78,7 +78,7 @@ case "$HOSTNAME" in
 ;;
     # Other
     *)
-        PS1="\t $HOSTNAME\[\e[${col}m\]\w\$(__git_ps1)\n\$\[\e[m\] "
+        PS1="\t $HOSTNAME \[\e[${col}m\]\w\$(__git_ps1)\n\$\[\e[m\] "
         case "$TERM" in
         xterm*|rxvt*)
             PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
@@ -105,7 +105,7 @@ alias ln='ln -i'
 alias qq='exit'
 alias ssh='ssh -Y'
 alias vi='vim'
-alias ls='LC_ALL=C ls -FX --color=auto --show-control-chars'
+alias ls='ls -FX --color=auto --show-control-chars'
 alias la='ls -a'
 alias ll='ls -lh'
 alias lt='ls -lth'
@@ -117,3 +117,6 @@ alias .4='cd ../../../../ && ls'
 alias tree='tree --charset=C -FN'
 
 export OMP_NUM_THREADS=4
+
+[ $HOSTNAME == "rodman" ] && source ~/.bashrc_wsl
+[ $HOSTNAME == "lebron" ] && source ~/.bashrc_wsl

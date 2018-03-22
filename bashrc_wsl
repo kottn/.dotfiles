@@ -1,1 +1,1 @@
-export DISPLAY=localhost:0.0
+alias ls='ls -FX --color=never --show-control-chars'

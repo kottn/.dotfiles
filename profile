@@ -1,7 +1,7 @@
 # .profile
-[ $HOSTNAME == "rodman" ] && source ~/.bashrc_wsl
-[ $HOSTNAME == "lebron" ] && source ~/.bashrc_wsl
-test -r ~/.bashrc && . ~/.bashrc
+[ $HOSTNAME == "rodman" ] && source ~/.profile_wsl
+[ $HOSTNAME == "lebron" ] && source ~/.profile_wsl
+test -r ~/.bashrc && source ~/.bashrc
 
 export LANG=ja_JP.utf-8
 #export LANG=en_US.utf-8
@@ -41,7 +41,7 @@ export PATH=/usr/lib/rstudio/bin:$PATH
 #export PATH=$HOME/share/gmsh-2.16.0-Linux/bin:$PATH
 export PATH=$HOME/share/gmsh-3.0.6-Linux64/bin:$PATH
 
-# Etc.
+# etc
 export PATH=$HOME/share/Marp:$PATH
 export PATH=$HOME/share/gibo:$PATH
 export PATH=$HOME/share/Shiba-linux-x64:$PATH
