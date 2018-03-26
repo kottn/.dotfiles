@@ -1,3 +1,4 @@
+xorg
 build-essential
 vim-nox
 gfortran
@@ -10,6 +11,7 @@ bash-completion
 gnuplot5-x11
 ristretto
 perl
+ssh
 sshfs
 a2ps
 e2ps
@@ -18,4 +20,5 @@ nkf
 fonts-migmix
 automake
 cmake
-x11-apps
+python
+python3
