@@ -13,14 +13,13 @@ function ask() {
 if ask "apt install, install, install...?"; then
     sudo apt update && apt upgrade
     sudo apt --version
-    case $HOSTNAME in 
-      rodman | lebron )
-        echo "road scripts/pkg-list-wsl..."
-        sudo apt install $(cat ~/dotfiles/scripts/pkg-list-wsl) ;;
-      * )
+    if [[ $(uname -r) =~ Microsoft ]] ; then
+        echo "road scripts/pkg-list-debian_wsl..."
+        sudo apt install $(cat ~/dotfiles/scripts/pkg-list-debian_wsl)
+    elif [[ $(uname -r) =~ amd64 ]] ; then
         echo "road scripts/pkg-list-debian..."
-        sudo apt install $(cat ~/dotfiles/scripts/pkg-list-debian) ;;
-    esac
+        sudo apt install $(cat ~/dotfiles/scripts/pkg-list-debian)
+    fi
 fi
 
 # Symlinks

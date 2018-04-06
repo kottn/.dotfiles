@@ -1,6 +1,5 @@
 # .profile
-[ $HOSTNAME == "rodman" ] && source ~/.profile_wsl
-[ $HOSTNAME == "lebron" ] && source ~/.profile_wsl
+[[ $(uname -r) =~ Microsoft ]] && source ~/.profile_wsl
 test -r ~/.bashrc && source ~/.bashrc
 
 export LANG=ja_JP.utf-8

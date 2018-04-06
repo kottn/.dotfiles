@@ -52,42 +52,39 @@ shopt -s extglob
 
 eval `dircolors ~/.colorrc`
 
-case "$HOSTNAME" in
-    # Debian / Ubuntu
-    pippen | rodman | lebron )
-        if type "xset" > /dev/null 2>&1; then
-          eval `xset b off`
-        fi
+# Debian
+if [[ $(cat /etc/os-release | head -n 1) =~ Debian ]]; then
+    if type "xset" > /dev/null 2>&1; then
+      eval `xset b off`
+    fi
 
-        if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-          debian_chroot=$(cat /etc/debian_chroot)
-        fi
-        PS1="\t $HOSTNAME\[\e[${col}m\]\w\$(__git_ps1)\n\$\[\e[m\] "
-        case "$TERM" in
-        xterm*|rxvt*)
-            PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-            ;;
-        *)
-            ;;
-        esac
-
-        function tlwatch { watch -t -n 180 "tw -tl | tail -n 15"; }
-        function dmwatch { watch -t -n 20  "tw -dm | tail -n 5 "; }
-        function gggterra { tw --dm:to=gggterra "${1}"; }
-        function eddyrhcp { tw --dm:to=eddyrhcp "${1}"; }
-;;
-    # Other
+    if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+      debian_chroot=$(cat /etc/debian_chroot)
+    fi
+    PS1="\t $HOSTNAME\[\e[${col}m\]\w\$(__git_ps1)\n\$\[\e[m\] "
+    case "$TERM" in
+    xterm*|rxvt*)
+        PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+        ;;
     *)
-        PS1="\t $HOSTNAME\[\e[${col}m\]\w\$(__git_ps1)\n\$\[\e[m\] "
-        case "$TERM" in
-        xterm*|rxvt*)
-            PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
-            ;;
-        *)
-            ;;
-        esac
-;;
-esac
+        ;;
+    esac
+
+    function tlwatch { watch -t -n 180 "tw -tl | tail -n 15"; }
+    function dmwatch { watch -t -n 20  "tw -dm | tail -n 5 "; }
+    function gggterra { tw --dm:to=gggterra "${1}"; }
+    function eddyrhcp { tw --dm:to=eddyrhcp "${1}"; }
+# Other
+else
+    PS1="\t $HOSTNAME\[\e[${col}m\]\w\$(__git_ps1)\n\$\[\e[m\] "
+    case "$TERM" in
+    xterm*|rxvt*)
+        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+        ;;
+    *)
+        ;;
+    esac
+fi
 
 function ss { name=${1:-${PWD##*/}} && screen -D -R $name; }
 function rr { R --vanilla < ${1} > ${1}.log; less ${1}.log; }
@@ -118,5 +115,5 @@ alias tree='tree --charset=C -FN'
 
 export OMP_NUM_THREADS=4
 
-[ $HOSTNAME == "rodman" ] && source ~/.bashrc_wsl
-[ $HOSTNAME == "lebron" ] && source ~/.bashrc_wsl
+[[ $(uname -r) =~ Microsoft ]] && source ~/.bashrc_wsl
+
