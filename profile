@@ -17,11 +17,11 @@ export PATH=$HOME/bin:$PATH
 export PATH=$HOME/local/bin:$PATH
 
 # pyenv + Anaconda (base env)
-export PYENV_ROOT="${HOME}/.pyenv"
-if [ -d "${PYENV_ROOT}" ]; then
-  export PATH="${PYENV_ROOT}/bin:${PATH}"
-  eval "$(pyenv init -)"
-fi
+#export PYENV_ROOT="${HOME}/.pyenv"
+#if [ -d "${PYENV_ROOT}" ]; then
+#  export PATH="${PYENV_ROOT}/bin:${PATH}"
+#  eval "$(pyenv init -)"
+#fi
 export PATH="$PYENV_ROOT/versions/anaconda3-5.1.0/bin/:$PATH"
 
 # rbenv
