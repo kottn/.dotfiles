@@ -167,7 +167,7 @@ augroup END
 
 " ステータスラインの項目
 "-----------------------
-hi StatusLine ctermfg=White ctermbg=66CCCC
+hi StatusLine ctermfg=66CCCC ctermbg=White
   set statusline=%F                         " バッファ内のファイルのフルパス
   set statusline+=%m                        " 修正フラグ
   set statusline+=%r                        " 読み込み専用フラグ

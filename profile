@@ -2,8 +2,8 @@
 [[ $(uname -r) =~ Microsoft ]] && source ~/.profile_wsl
 test -r ~/.bashrc && source ~/.bashrc
 
-export LANG=ja_JP.utf-8
-#export LANG=en_US.utf-8
+export LANG=ja_JP.UTF-9
+#export LANG=en_US.UTF-8
 
 export TERM=xterm-256color
 export PAGER=less
