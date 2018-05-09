@@ -70,10 +70,6 @@ if [[ $(cat /etc/os-release | head -n 1) =~ Debian ]]; then
         ;;
     esac
 
-    function tlwatch { watch -t -n 180 "tw -tl | tail -n 15"; }
-    function dmwatch { watch -t -n 20  "tw -dm | tail -n 5 "; }
-    function gggterra { tw --dm:to=gggterra "${1}"; }
-    function eddyrhcp { tw --dm:to=eddyrhcp "${1}"; }
 # Other
 else
     PS1="\t $HOSTNAME\[\e[${col}m\]\w\$(__git_ps1)\n\$\[\e[m\] "
@@ -88,7 +84,7 @@ fi
 
 function ss { name=${1:-${PWD##*/}} && screen -D -R $name; }
 function rr { R --vanilla < ${1} > ${1}.log; less ${1}.log; }
-function ff { if [ ! "$1" ]; then echo 'usage: f pattern [dir ...]'; \
+function ff { if [ ! "$1" ]; then echo 'usage: ff pattern [dir ...]'; \
                         else n="*$1*"; shift; find . "$@" -name "$n"; fi }
 function ee { less  `ls -t ./stderr/*.e[0-9]* | head -n 1`; }
 function oo { less  `ls -t ./stdout/*.o[0-9]* | head -n 1`; }
