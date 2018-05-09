@@ -2,6 +2,8 @@
 [[ $(uname -r) =~ Microsoft ]] && source ~/.profile_wsl
 test -r ~/.bashrc && source ~/.bashrc
 
+export OMP_NUM_THREADS=4
+
 export LANG=ja_JP.UTF-8
 #export LANG=en_US.UTF-8
 

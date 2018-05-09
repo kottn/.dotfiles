@@ -109,7 +109,5 @@ alias .3='cd ../../../ && ls'
 alias .4='cd ../../../../ && ls'
 alias tree='tree --charset=C -FN'
 
-export OMP_NUM_THREADS=4
-
 [[ $(uname -r) =~ Microsoft ]] && source ~/.bashrc_wsl
 
