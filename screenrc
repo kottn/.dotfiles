@@ -3,7 +3,7 @@ term screen-256color
 autodetach on
 altscreen on
 mousetrack on
-escape ^Tt
+#escape ^Jj
 zombie kr # -- kill(k) or restart(r)
 defscrollback 1000
 startup_message off
