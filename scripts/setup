@@ -25,6 +25,7 @@ fi
 # Symlinks
 if ask "dotfiles link, link, link...?"; then
   ~/dotfiles/scripts/symlinks
+  mkdir -p ~/.screen/sockets/; chmod 700 ~/.screen/sockets/
 fi
 
 # Git config
