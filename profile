@@ -16,6 +16,7 @@ export LESS='-iMQR -x2 -FX' # -R is must for 'git diff'
 # Basic
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/local/bin:$PATH
+export PATH=$HOME/local/sbin:$PATH
 
 # pyenv + Anaconda (base env)
 #export PYENV_ROOT="${HOME}/.pyenv"
@@ -36,16 +37,16 @@ fi
 export PATH=/usr/lib/rstudio/bin:$PATH
 
 # Paraview
-#export PATH=$HOME/share/ParaView-4.4.0-Qt4-Linux-64bit/bin:$PATH
+#export PATH=$HOME/local/share/ParaView-4.4.0-Qt4-Linux-64bit/bin:$PATH
 
 # Gmsh
-#export PATH=$HOME/share/gmsh-2.16.0-Linux/bin:$PATH
-export PATH=$HOME/share/gmsh-3.0.6-Linux64/bin:$PATH
+#export PATH=$HOME/local/share/gmsh-2.16.0-Linux/bin:$PATH
+export PATH=$HOME/local/share/gmsh-3.0.6-Linux64/bin:$PATH
 
 # etc
-export PATH=$HOME/share/Marp:$PATH
-export PATH=$HOME/share/gibo:$PATH
-export PATH=$HOME/share/Shiba-linux-x64:$PATH
+export PATH=$HOME/local/share/Marp:$PATH
+export PATH=$HOME/local/share/gibo:$PATH
+export PATH=$HOME/local/share/Shiba-linux-x64:$PATH
 
 # golang
 export PATH=$PATH:/usr/local/go/bin
