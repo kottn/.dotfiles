@@ -5,7 +5,7 @@ My dotfiles for Debian 9
 ```
 cd; git clone https://github.com/kottn/dotfiles && cd dotfiles; make
 ```
-Then start up `vim` and type the following:
+Then start up `vim` and type following:
 ```
 :PlugInstall
 ```

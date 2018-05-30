@@ -1,5 +1,5 @@
 #==========================================
-# Kotani's .bashrc
+# .bashrc (Common)
 #==========================================
 # If not running interactively, don't do anything
 case $- in
@@ -20,8 +20,8 @@ case "$HOST_COLOR" in
     cyan*) col=36;;  gray*) col=37;;       *) col=39;;
 esac
 
-test -r ~/.git-completion.bash && source ~/.git-completion.bash
-test -r ~/.git-prompt.sh       && source ~/.git-prompt.sh
+[[ -r ~/.git-completion.bash ]] && source ~/.git-completion.bash
+[[ -r ~/.git-prompt.sh       ]] && source ~/.git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWSTASHSTATE=true
@@ -32,7 +32,7 @@ fi
 complete -d cd
 complete -c man
 
-test -r ~/.cdhist.sh && source ~/.cdhist.sh
+[[ -r ~/.cdhist.sh ]] && source ~/.cdhist.sh
 HISTCONTROL=ignoreboth
 HISTIGNORE="fg*:bg*:history*:ls::lf:la:ll:lt"
 HISTTIMEFORMAT='%m/%d %T '
@@ -89,7 +89,7 @@ function ff { if [ ! "$1" ]; then echo 'usage: ff pattern [dir ...]'; \
 function ee { less  `ls -t ./stderr/*.e[0-9]* | head -n 1`; }
 function oo { less  `ls -t ./stdout/*.o[0-9]* | head -n 1`; }
 function mu { mupdf `ls -t *.pdf | head -n 1`; }
-function gm { for pr in "$@"; do \mv -v -b --suffix=.gm~ ${pr} ~/gm; done }
+function gm { for pr in "$@"; do \mv -v --backup=numbered ${pr} ~/gm; done }
 
 alias sc='source ~/.bashrc'
 alias mv='mv -i'

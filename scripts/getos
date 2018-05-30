@@ -1,0 +1,48 @@
+#!/bin/bash
+if   [ -e /etc/debian_version ]; then
+    if [ -e /etc/lsb-release ]; then
+        distri_name="ubuntu"
+
+    else
+        distri_name="debian"
+
+    fi
+elif [ -e /etc/fedora-release ]; then
+    distri_name="fedora"
+
+elif [ -e /etc/redhat-release ]; then
+    if [ -e /etc/oracle-release ]; then
+        distri_name="oracle"
+
+    elif [ -e /etc/centos-release ]; then
+        distri_name="centos"
+
+    else
+        distri_name="redhat"
+
+    fi
+elif [ -e /etc/arch-release ]; then
+    distri_name="arch"
+
+elif [ -e /etc/turbolinux-release ]; then
+    distri_name="turbol"
+
+elif [ -e /etc/SuSE-release ]; then
+    distri_name="suse"
+
+elif [ -e /etc/mandriva-release ]; then
+    distri_name="mandriva"
+
+elif [ -e /etc/vine-release ]; then
+    distri_name="vine"
+
+elif [ -e /etc/gentoo-release ]; then
+    distri_name="gentoo"
+
+else
+    echo "Unkown distribution!!!"
+    distri_name="unkown"
+
+fi
+
+echo ${distri_name}
