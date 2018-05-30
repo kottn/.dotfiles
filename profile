@@ -1,8 +1,8 @@
 #==========================================
 # .profile (Common)
 #==========================================
-getos=($(${HOME}/dotfiles/scripts/getos))
-[[ $(getos) == debian ]]       && source ~/.profile_debian
+getos=$(${HOME}/dotfiles/scripts/getos)
+[[ ${getos} == debian ]]       && source ~/.profile_debian
 [[ $(uname -r) =~ Microsoft ]] && source ~/.profile_wsl
 [[ -r ~/.bashrc ]]             && source ~/.bashrc
 

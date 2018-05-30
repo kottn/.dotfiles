@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 function ask() {
   printf "$* (Y/n)"
   local answer && read answer
@@ -14,11 +13,11 @@ if ask "apt install, install, install...?"; then
     sudo apt update && apt upgrade
     sudo apt --version
     if [[ $(uname -r) =~ Microsoft ]] ; then
-        echo "road scripts/pkg-list-debian_wsl..."
-        sudo apt install $(cat ~/dotfiles/scripts/pkg-list-debian_wsl)
+        echo "road scripts/lst-pkg_wsl..."
+        sudo apt install $(cat ~/dotfiles/scripts/lst-pkg_wsl)
     elif [[ $(uname -r) =~ amd64 ]] ; then
-        echo "road scripts/pkg-list-debian..."
-        sudo apt install $(cat ~/dotfiles/scripts/pkg-list-debian)
+        echo "road scripts/lst-pkg..."
+        sudo apt install $(cat ~/dotfiles/scripts/lst-pkg)
     fi
 fi
 
