@@ -41,8 +41,8 @@ if ask "Git config?"; then
 fi
 
 # Git clone
-if ask "Git clone, clone, clone...?"; then
-  mkdir -p ~/share && cd ~/share
-  git clone $(cat ~/dotfiles/scripts/git-clone-list)
-fi
+#if ask "Git clone, clone, clone...?"; then
+#  mkdir -p ~/share && cd ~/share
+#  git clone $(cat ~/dotfiles/scripts/git-clone-list)
+#fi
 

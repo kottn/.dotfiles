@@ -89,6 +89,7 @@ function ff { if [ ! "$1" ]; then echo 'usage: ff pattern [dir ...]'; \
 function ee { less  `ls -t ./stderr/*.e[0-9]* | head -n 1`; }
 function oo { less  `ls -t ./stdout/*.o[0-9]* | head -n 1`; }
 function mu { mupdf `ls -t *.pdf | head -n 1`; }
+function gm { for pr in "$@"; do \mv -v -b --suffix=.gm~ ${pr} ~/gm; done }
 
 alias sc='source ~/.bashrc'
 alias mv='mv -i'
