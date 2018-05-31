@@ -2,7 +2,6 @@
 # .profile_debian
 #==========================================
 export PATH=$HOME/local/bin:$PATH
-export PATH=$HOME/local/sbin:$PATH
 
 export LANG=ja_JP.UTF-8
 #export LANG=en_US.UTF-8
@@ -14,7 +13,10 @@ if [ -d "${RBENV_ROOT}" ]; then
   eval "$(rbenv init -)"
 fi
 
-#) Share
+#) kottn's tools
+export PATH=$HOME/local/kottn/eigo:$PATH
+
+#) share tools
 export PATH=/usr/lib/rstudio/bin:$PATH
 #export PATH=$HOME/local/share/ParaView-4.4.0-Qt4-Linux-64bit/bin:$PATH
 #export PATH=$HOME/local/share/gmsh-2.16.0-Linux/bin:$PATH
