@@ -109,6 +109,7 @@ alias .2='cd ../../ && ls'
 alias .3='cd ../../../ && ls'
 alias .4='cd ../../../../ && ls'
 alias tree='tree --charset=C -FN'
+alias jn='jupyter notebook --ip=0.0.0.0 --port=8080'
 
 [[ $(uname -r) =~ Microsoft ]] && source ~/.bashrc_wsl
 
