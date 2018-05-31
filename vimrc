@@ -21,9 +21,9 @@ Plug 'scrooloose/nerdcommenter'
   let g:NERDTrimTrailingWhitespace = 1
 
 " http://colorswat.ch/vim
-Plug 'w0ng/vim-hybrid'              " hybrid
-Plug 'cocopon/iceberg.vim'          " iceberg
-Plug 'sjl/badwolf'                  " badwolf,goodwolf
+Plug 'w0ng/vim-hybrid'       " hybrid
+Plug 'cocopon/iceberg.vim'   " iceberg
+Plug 'sjl/badwolf'           " badwolf,goodwolf
 
 " Emoji
 Plug 'mattn/emoji-vim'
@@ -270,12 +270,6 @@ function! ExJump()
 	exec ":" . s:njump
 endfunction
 nnoremap <C-J> :call ExJump()<CR>
-
-" emoji
-command! Emoji !firefox https://www.webpagefx.com/tools/emoji-cheat-sheet/
-
-" Markdown view
-command! Thunar !thunar %:h
 
 filetype plugin indent on
 "<}}}
