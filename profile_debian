@@ -13,18 +13,19 @@ if [ -d "${RBENV_ROOT}" ]; then
   eval "$(rbenv init -)"
 fi
 
+#) rstudio
+export PATH=/usr/lib/rstudio/bin:$PATH
+
 #) kottn's tools
 export PATH=$HOME/local/kottn/eigo:$PATH
 
 #) share tools
-export PATH=/usr/lib/rstudio/bin:$PATH
-#export PATH=$HOME/local/share/ParaView-4.4.0-Qt4-Linux-64bit/bin:$PATH
-#export PATH=$HOME/local/share/gmsh-2.16.0-Linux/bin:$PATH
-export PATH=$HOME/local/share/gmsh-3.0.5-Linux/bin:$PATH
-# export PATH=$HOME/local/share/gmsh-3.0.6-Linux64/bin:$PATH
-export PATH=$HOME/local/share/Marp:$PATH
-# export PATH=$HOME/local/share/gibo:$PATH
-# export PATH=$HOME/local/share/Shiba-linux-x64:$PATH
+# export PATH=$HOME/local/share/ParaView-4.4.0-Qt4-Linux-64bit/bin:$PATH
+# export PATH=$HOME/local/share/gmsh-2.16.0-Linux/bin:$PATH
+# export PATH=$HOME/local/share/gmsh-3.0.5-Linux/bin:$PATH
+export PATH=$HOME/local/share/gmsh-3.0.6-Linux64/bin:$PATH
+export PATH=$HOME/local/share/Marp-0.0.12:$PATH
+export PATH=$HOME/local/share/gibo:$PATH
 
 #) golang
 export PATH=/usr/local/go/bin:$PATH
