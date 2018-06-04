@@ -113,7 +113,7 @@ hi Folded term=standout ctermbg=Black ctermfg=Yellow guibg=Black guifg=Yellow
 hi FoldColumn term=standout ctermbg=Black ctermfg=Yellow guibg=Black guifg=Yellow
 
 " Visual選択の色
-hi Visual ctermfg=White ctermbg=66CCCC
+hi Visual ctermfg=White ctermbg=08A93E
 
 " 検索結果の色
 set hlsearch
@@ -167,7 +167,7 @@ augroup END
 
 " ステータスラインの項目
 "-----------------------
-hi StatusLine ctermfg=66CCCC ctermbg=White
+hi StatusLine ctermfg=08A93E ctermbg=White
   set statusline=%F                         " バッファ内のファイルのフルパス
   set statusline+=%m                        " 修正フラグ
   set statusline+=%r                        " 読み込み専用フラグ
