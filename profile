@@ -1,13 +1,9 @@
 #==========================================
 # .profile (Common)
 #==========================================
-getos=$(${HOME}/dotfiles/scripts/getos)
-[[ ${getos} == debian ]]       && source ~/.profile_debian
-[[ $(uname -r) =~ Microsoft ]] && source ~/.profile_wsl
-[[ -r ~/.bashrc ]]             && source ~/.bashrc
-
 #) Basic
 export PATH=$HOME/bin:$PATH
+export SHELL=/bin/bash
 export TERM=xterm-256color
 export PAGER=less
 export SCREENDIR=$HOME/.screen/sockets/$HOST
@@ -25,3 +21,10 @@ export PATH="$PYENV_ROOT/versions/anaconda3-5.1.0/bin/:$PATH"
 
 
 export OMP_NUM_THREADS=4
+
+# Roading
+getos=$(${HOME}/dotfiles/scripts/getos)
+[[ ${getos} == debian ]]       && source ~/.profile_debian
+[[ $(uname -r) =~ Microsoft ]] && source ~/.profile_wsl
+[[ -r ~/.bashrc ]]             && source ~/.bashrc
+
