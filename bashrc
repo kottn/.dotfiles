@@ -50,7 +50,7 @@ PROMPT_COMMAND='sync_history'
 shopt -s checkwinsize
 shopt -s extglob
 
-eval `dircolors ~/.colorrc`
+eval $(dircolors ~/.colorrc)
 
 # Debian
 if [[ $(cat /etc/os-release | head -n 1) =~ Debian ]]; then
