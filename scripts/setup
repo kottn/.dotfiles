@@ -46,5 +46,6 @@ if ask "Make ~/local/* ?"; then
   mkdir -p ~/local/share
 fi
 
-# _gm
+# etc
 mkdir -p ~/_gm
+mkdir -p ~/mnt
