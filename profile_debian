@@ -20,8 +20,6 @@ export PATH=/usr/lib/rstudio/bin:$PATH
 export PATH=$HOME/local/kottn/eigo:$PATH
 
 #) share tools
-# export PATH=$HOME/local/share/ParaView/bin:$PATH
-export PATH=$HOME/local/share/gmsh:$PATH
 export PATH=$HOME/local/share/Marp:$PATH
 export PATH=$HOME/local/share/gibo:$PATH
 

@@ -28,3 +28,5 @@ getos=$(${HOME}/dotfiles/scripts/getos)
 [[ $(uname -r) =~ Microsoft ]] && source ~/.profile_wsl
 [[ -r ~/.bashrc ]]             && source ~/.bashrc
 
+# export PATH=$HOME/local/share/ParaView/bin:$PATH
+export PATH=$HOME/local/share/gmsh:$PATH
