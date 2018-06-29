@@ -52,5 +52,4 @@ fi
 
 # etc
 mkdir -p ~/_gm
-[[ ${getos} == debian ]] && mkdir -p ~/mnt
 
