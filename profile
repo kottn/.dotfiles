@@ -19,6 +19,8 @@ if [ -d "${PYENV_ROOT}" ]; then
 fi
 export PATH="$PYENV_ROOT/versions/anaconda3-5.1.0/bin/:$PATH"
 
+# export PATH=$HOME/local/share/ParaView/bin:$PATH
+export PATH="$HOME/local/share/gmsh/bin:$PATH"
 
 export OMP_NUM_THREADS=4
 
@@ -28,5 +30,3 @@ getos=$(${HOME}/dotfiles/scripts/getos)
 [[ $(uname -r) =~ Microsoft ]] && source ~/.profile_wsl
 [[ -r ~/.bashrc ]]             && source ~/.bashrc
 
-# export PATH=$HOME/local/share/ParaView/bin:$PATH
-export PATH="$HOME/local/share/gmsh:$PATH"
