@@ -12,6 +12,7 @@ esac
 [ $HOSTNAME == "pippen"   ] && HOST_COLOR="blue"
 [ $HOSTNAME == "eggplant" ] && HOST_COLOR="yellow"
 [ $HOSTNAME == "pea"      ] && HOST_COLOR="cyan"
+[ $HOSTNAME == "turron"   ] && HOST_COLOR="cyan"
 [ $HOSTNAME == "kimchi"   ] && HOST_COLOR="red"
 HOST_COLOR=${HOST_COLOR:-white}
 case "$HOST_COLOR" in
