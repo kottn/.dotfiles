@@ -1,4 +1,3 @@
-xorg
 build-essential
 vim-nox
 gfortran
@@ -8,6 +7,7 @@ manpages-ja
 manpages-ja-dev
 tree
 bash-completion
+xorg
 gnuplot5-x11
 xfce4
 ristretto
@@ -22,5 +22,3 @@ fonts-migmix
 automake
 cmake
 python
-python2.7-dev
-python3
