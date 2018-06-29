@@ -2,11 +2,11 @@
 # .profile (Common)
 #==========================================
 #) Basic
-export PATH=$HOME/bin:$PATH
+export PATH="$HOME/bin:$PATH"
 export SHELL=/bin/bash
 export TERM=xterm-256color
 export PAGER=less
-export SCREENDIR=$HOME/.screen/sockets/$HOST
+export SCREENDIR="$HOME/.screen/sockets/$HOST"
 export EDITOR=vim
 export LESS='-iMQR -x2 -FX' # -R is must for 'git diff'
 
@@ -29,4 +29,4 @@ getos=$(${HOME}/dotfiles/scripts/getos)
 [[ -r ~/.bashrc ]]             && source ~/.bashrc
 
 # export PATH=$HOME/local/share/ParaView/bin:$PATH
-export PATH=$HOME/local/share/gmsh:$PATH
+export PATH="$HOME/local/share/gmsh:$PATH"
