@@ -11,17 +11,21 @@ echo ""
 echo " --- Now Downloading..."
 # -- git-completion
 if [[ ! -f git-completion.bash ]]; then
+  echo "=== git-completion.bash ==="
   curl -LO ${rURL}/git/git/master/contrib/completion/git-completion.bash
 fi
 if [[ ! -f git-prompt.sh ]]; then
+  echo "=== git-prompt.sh ==="
   curl -LO ${rURL}/git/git/master/contrib/completion/git-prompt.sh
 fi
 # -- cdhist
 if [[ ! -f cdhist.sh ]]; then
+  echo "=== cdhist.sh ==="
   curl -LO ${rURL}/euske/settings/master/bash/cdhist.sh
 fi
 # -- vim-plug
 mkdir -p vim/autoload
+echo "=== vim-plug ==="
 curl -L  ${rURL}/junegunn/vim-plug/master/plug.vim > vim/autoload/plug.vim
 
 echo ""
