@@ -20,6 +20,8 @@ case "$HOST_COLOR" in
     cyan*) col=36;;  gray*) col=37;;       *) col=39;;
 esac
 
+eval $(dircolors ~/.colorrc)
+
 [[ -r ~/.git-completion.bash ]] && source ~/.git-completion.bash
 [[ -r ~/.git-prompt.sh       ]] && source ~/.git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=true
