@@ -26,61 +26,15 @@ GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREAM=auto
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
-complete -d cd
-complete -c man
 
-[[ -r ~/.cdhist.sh ]] && source ~/.cdhist.sh
-HISTCONTROL=ignoreboth
-HISTIGNORE="fg*:bg*:history*:ls::lf:la:ll:lt"
-HISTTIMEFORMAT='%m/%d %T '
-shopt -s histreedit
-shopt -s histverify
-shopt -s histappend
-IGNOREEOF=10
-HISTSIZE=1000
-function sync_history {
-    history -a    # .bash_historyに前回コマンドを1行追記
-    history -c    # 端末ローカルの履歴を一旦消去
-    history -r    # .bash_historyから履歴を読み込み直す
-}
-PROMPT_COMMAND='sync_history'
-shopt -s checkwinsize
-shopt -s extglob
-
-eval $(dircolors ~/.colorrc)
-
-# Debian
-if [[ $(cat /etc/os-release | head -n 1) =~ Debian ]]; then
-    if type "xset" > /dev/null 2>&1; then
-      eval `xset b off`
-    fi
-
-    if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-      debian_chroot=$(cat /etc/debian_chroot)
-    fi
-    PS1="\t $HOSTNAME\[\e[${col}m\]\w\$(__git_ps1)\n\$\[\e[m\] "
-    case "$TERM" in
-    xterm*|rxvt*)
-        PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-        ;;
-    *)
-        ;;
-    esac
-
-# Other
-else
-    PS1="\t $HOSTNAME\[\e[${col}m\]\w\$(__git_ps1)\n\$\[\e[m\] "
-    case "$TERM" in
-    xterm*|rxvt*)
-        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
-        ;;
-    *)
-        ;;
-    esac
-fi
+PS1="\t $HOSTNAME\[\e[${col}m\]\w\$(__git_ps1)\n\$\[\e[m\] "
+case "$TERM" in
+xterm*|rxvt*)
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+    ;;
+*)
+    ;;
+esac
 
 function ss { name=${1:-${PWD##*/}} && screen -D -R $name; }
 function rr { R --vanilla < ${1} > ${1}.log; less ${1}.log; }
@@ -88,7 +42,6 @@ function ff { if [ ! "$1" ]; then echo 'usage: ff pattern [dir ...]'; \
                         else n="*$1*"; shift; find . "$@" -name "$n"; fi }
 function ee { less  `ls -t ./stderr/*.e[0-9]* | head -n 1`; }
 function oo { less  `ls -t ./stdout/*.o[0-9]* | head -n 1`; }
-function mu { mupdf `ls -t *.pdf | head -n 1`; }
 function gm { for pr in "$@"; do \mv -v --backup=numbered ${pr} ~/_gm; done }
 
 alias sc='source ~/.bashrc'
@@ -104,13 +57,10 @@ alias la='ls -a'
 alias ll='ls -lh'
 alias lt='ls -lth'
 alias grep='grep -iI --color=auto'
-alias ..='cd ../ && ls'
-alias .2='cd ../../ && ls'
-alias .3='cd ../../../ && ls'
-alias .4='cd ../../../../ && ls'
-alias tree='tree --charset=C -FN'
 alias jn='jupyter notebook --ip=0.0.0.0 --port=8080'
-alias qsub='\qsub -N $(basename `pwd`)'
 
+# Roading
+getos=$(${HOME}/dotfiles/scripts/getos)
+[[ ${getos} == debian ]]       && source ~/.bashrc_debian
 [[ $(uname -r) =~ Microsoft ]] && source ~/.bashrc_wsl
 

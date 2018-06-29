@@ -1,0 +1,53 @@
+#==========================================
+# .bashrc_debian
+#==========================================
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+complete -d cd
+complete -c man
+
+[[ -r ~/.cdhist.sh ]] && source ~/.cdhist.sh
+HISTCONTROL=ignoreboth
+HISTIGNORE="fg*:bg*:history*:ls::lf:la:ll:lt"
+HISTTIMEFORMAT='%m/%d %T '
+shopt -s histreedit
+shopt -s histverify
+shopt -s histappend
+IGNOREEOF=10
+HISTSIZE=1000
+function sync_history {
+    history -a    # .bash_historyに前回コマンドを1行追記
+    history -c    # 端末ローカルの履歴を一旦消去
+    history -r    # .bash_historyから履歴を読み込み直す
+}
+PROMPT_COMMAND='sync_history'
+shopt -s checkwinsize
+shopt -s extglob
+
+eval $(dircolors ~/.colorrc)
+
+# Debian
+if type "xset" > /dev/null 2>&1; then
+  eval `xset b off`
+fi
+
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+  debian_chroot=$(cat /etc/debian_chroot)
+fi
+PS1="\t $HOSTNAME\[\e[${col}m\]\w\$(__git_ps1)\n\$\[\e[m\] "
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+function mu { mupdf `ls -t *.pdf | head -n 1`; }
+
+alias ..='cd ../ && ls'
+alias .2='cd ../../ && ls'
+alias .3='cd ../../../ && ls'
+alias .4='cd ../../../../ && ls'
+alias tree='tree --charset=C -FN'
