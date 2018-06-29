@@ -10,7 +10,7 @@ function ask() {
 
 # Apt packages
 if ask "apt install, install, install...?"; then
-    sudo apt update && apt upgrade
+    sudo apt update && sudo apt upgrade
     sudo apt --version
     if [[ $(uname -r) =~ Microsoft ]] ; then
         echo "road scripts/lst-pkg_wsl..."
