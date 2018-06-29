@@ -8,17 +8,21 @@ function ask() {
   esac
 }
 
+getos=$(${HOME}/dotfiles/scripts/getos)
+
 # Apt packages
-if ask "apt install, install, install...?"; then
-    sudo apt update && sudo apt upgrade
-    sudo apt --version
-    if [[ $(uname -r) =~ Microsoft ]] ; then
-        echo "road scripts/lst-pkg_wsl..."
-        sudo apt install $(cat ~/dotfiles/scripts/lst-pkg_wsl)
-    elif [[ $(uname -r) =~ amd64 ]] ; then
-        echo "road scripts/lst-pkg..."
-        sudo apt install $(cat ~/dotfiles/scripts/lst-pkg)
-    fi
+if [[ ${getos} == debian ]]; then
+  if ask "apt install, install, install...?"; then
+      sudo apt update && sudo apt upgrade
+      sudo apt --version
+      if [[ $(uname -r) =~ Microsoft ]] ; then
+          echo "road scripts/lst-pkg_wsl..."
+          sudo apt install $(cat ~/dotfiles/scripts/lst-pkg_wsl)
+      elif [[ $(uname -r) =~ amd64 ]] ; then
+          echo "road scripts/lst-pkg..."
+          sudo apt install $(cat ~/dotfiles/scripts/lst-pkg)
+      fi
+  fi
 fi
 
 # Symlinks
@@ -48,4 +52,5 @@ fi
 
 # etc
 mkdir -p ~/_gm
-mkdir -p ~/mnt
+[[ ${getos} == debian ]] && mkdir -p ~/mnt
+
