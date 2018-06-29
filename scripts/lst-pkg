@@ -4,6 +4,7 @@ neovim
 gfortran
 fort77
 python
+python2.7-dev
 python3
 git
 gitk

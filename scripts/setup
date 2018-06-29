@@ -25,7 +25,6 @@ fi
 if ask "dotfiles link, link, link...?"; then
   ~/dotfiles/scripts/symlinks
   mkdir -p ~/.screen/sockets/; chmod 700 ~/.screen/sockets/
-  mkdir -p ~/_gm
 fi
 
 # Git config
@@ -40,9 +39,12 @@ if ask "Git config?"; then
   git config --global core.quotepath false
 fi
 
-# Git clone
-#if ask "Git clone, clone, clone...?"; then
-#  mkdir -p ~/share && cd ~/share
-#  git clone $(cat ~/dotfiles/scripts/git-clone-list)
-#fi
+# local
+if ask "Make ~/local/* ?"; then
+  mkdir -p ~/local/bin
+  mkdir -p ~/local/kottn
+  mkdir -p ~/local/share
+fi
 
+# _gm
+mkdir -p ~/_gm

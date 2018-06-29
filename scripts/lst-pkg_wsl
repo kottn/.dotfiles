@@ -22,4 +22,5 @@ fonts-migmix
 automake
 cmake
 python
+python2.7-dev
 python3
