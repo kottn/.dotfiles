@@ -61,6 +61,7 @@ alias ll='ls -lh'
 alias lt='ls -lth'
 alias grep='grep -iI --color=auto'
 alias jn='jupyter notebook --ip=0.0.0.0 --port=8080'
+alias cl='clear'
 
 # Roading
 getos=$(${HOME}/dotfiles/scripts/getos)
