@@ -86,7 +86,6 @@ augroup END
 let fortran_free_source=1
 let fortran_more_precise=1
 let fortran_do_enddo=1
-"let fortran_fold=1
 
 let g:changelog_timeformat = "%Y-%m-%d"
 let g:changelog_username = "T. Kotani"
@@ -162,6 +161,7 @@ augroup fileTypeFeel
     au BufNewFile,BufRead *\.md  set filetype=markdown
     au BufNewFile,BufRead *\.md  hi  ColorColumn ctermbg=NONE
     au BufNewFile,BufRead *\.py  hi  ColorColumn ctermbg=NONE
+    au BufNewfile,BufRead *\.tex set foldmethod=syntax
 augroup END
 
 
