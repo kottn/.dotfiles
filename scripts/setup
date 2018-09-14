@@ -41,6 +41,8 @@ if ask "Git config?"; then
   git config --global color.branch auto
   git config --global core.pager "less -cm"
   git config --global core.quotepath false
+  git config --global --add merge.ff false
+  git config --global --add pull.ff only
 fi
 
 # local

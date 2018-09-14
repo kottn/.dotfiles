@@ -17,7 +17,7 @@ if [ -d "${PYENV_ROOT}" ]; then
   export PATH="${PYENV_ROOT}/bin:${PATH}"
   eval "$(pyenv init -)"
 fi
-export PATH="$PYENV_ROOT/versions/anaconda3-5.1.0/bin/:$PATH"
+export PATH="$PYENV_ROOT/versions/anaconda3-5.1.0/bin:$PATH"
 
 # export PATH=$HOME/local/share/ParaView/bin:$PATH
 export PATH="$HOME/local/share/gmsh/bin:$PATH"
