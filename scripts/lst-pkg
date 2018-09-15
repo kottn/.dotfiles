@@ -43,3 +43,4 @@ freerdp-x11
 automake
 cmake
 curl
+apt-file
