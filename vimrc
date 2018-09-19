@@ -25,8 +25,8 @@ Plug 'w0ng/vim-hybrid'       " hybrid
 Plug 'cocopon/iceberg.vim'   " iceberg
 Plug 'sjl/badwolf'           " badwolf,goodwolf
 
-" Emoji
-Plug 'mattn/emoji-vim'
+" For ToC
+Plug 'mzlogin/vim-markdown-toc'
 
 call plug#end()
 
