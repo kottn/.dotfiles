@@ -25,7 +25,7 @@ Plug 'w0ng/vim-hybrid'       " hybrid
 Plug 'cocopon/iceberg.vim'   " iceberg
 Plug 'sjl/badwolf'           " badwolf,goodwolf
 
-" For ToC
+" For generate ToC
 Plug 'mzlogin/vim-markdown-toc'
 
 call plug#end()
