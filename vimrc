@@ -28,6 +28,11 @@ Plug 'sjl/badwolf'           " badwolf,goodwolf
 " For generate ToC
 Plug 'mzlogin/vim-markdown-toc'
 
+" For Preview Markdown
+Plug 'previm/previm'
+"  let g:previm_open_cmd = 'open -a firefox'
+"  let g:previm_enable_realtime=1
+
 call plug#end()
 
 filetype plugin indent on
