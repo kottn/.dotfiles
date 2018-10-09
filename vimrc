@@ -6,7 +6,7 @@
 if has("unix")
   call plug#begin('~/.vim/plugged')
 elseif has("win64")
-  call plug#begin('$VIM/.vim/plugged')
+  call plug#begin('$VIM/plugins/vim-plug/plugged')
 endif
 
 Plug 'vim-jp/vimdoc-ja'
