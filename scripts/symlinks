@@ -33,6 +33,7 @@ echo " --- Now Linking..."
 for f in *; do
     [ "$f" = ".git" ] && continue
     [ "$f" = "scripts" ] && continue
+    [ "$f" = "templates" ] && continue
     [ "$f" = ".gitignore" ] && continue
     [ "$f" = "README.md" ] && continue
     [ "$f" = "Makefile" ] && continue
