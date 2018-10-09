@@ -42,7 +42,6 @@ Plug 'previm/previm'
     let g:previm_open_cmd = 'open -a firefox'
     let g:previm_custom_css_path = '~/dotfiles/templates/markdown.css'
   endif
-  let g:previm_enable_realtime=1
 
 call plug#end()
 
