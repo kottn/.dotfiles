@@ -3,9 +3,9 @@
 "
 "  Plugins"{{{>
 "--------------------------------------
-if has("unix")
+if has('unix')
   call plug#begin('~/.vim/plugged')
-elseif has("win64")
+elseif has('win64')
   call plug#begin('$VIM/plugins/vim-plug/plugged')
 endif
 
@@ -34,10 +34,15 @@ Plug 'mzlogin/vim-markdown-toc'
 
 " For Kaoriya-Vim
 Plug 'previm/previm'
-  if has("win64")
+  let g:previm_disable_default_css = 1
+  if has('win64')
     let g:previm_open_cmd = 'C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe'
-    let g:previm_enable_realtime=1
+    let g:previm_custom_css_path = '$VIM/plugins/vim-plug/plugged/previm/markdown.css'
+  elseif has('unix')
+    let g:previm_open_cmd = 'open -a firefox'
+    let g:previm_custom_css_path = '~/dotfiles/templates/markdown.css'
   endif
+  let g:previm_enable_realtime=1
 
 call plug#end()
 
