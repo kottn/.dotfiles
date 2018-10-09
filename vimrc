@@ -72,7 +72,7 @@ set matchpairs=(:),{:},[:],<:>        " %キーで対応する括弧に飛ぶ
 set virtualedit=block                 " C-v中に行末以降に移動可能
 set iminsert=0                        " Off&Off 挿入モード
 set imsearch=0                        " Off&Off 検索時
-set clipboard=unnamedplus             " Enable clipboad
+"set clipboard=unnamedplus             " Enable clipboad
 set nrformats=""                      " C-a,C-xは10進数
 set ignorecase                        " 大文字小文字を区別しない
 
