@@ -3,7 +3,11 @@
 "
 "  Plugins"{{{>
 "--------------------------------------
-call plug#begin('~/.vim/plugged')
+if has("unix")
+  call plug#begin('~/.vim/plugged')
+elseif has("win64")
+  call plug#begin('$VIM/.vim/plugged')
+endif
 
 Plug 'vim-jp/vimdoc-ja'
   set helplang=ja
@@ -28,10 +32,12 @@ Plug 'sjl/badwolf'           " badwolf,goodwolf
 " For generate ToC
 Plug 'mzlogin/vim-markdown-toc'
 
-" For Preview Markdown
+" For Kaoriya-Vim
 Plug 'previm/previm'
-"  let g:previm_open_cmd = 'open -a firefox'
-"  let g:previm_enable_realtime=1
+  if has("win64")
+    let g:previm_open_cmd = 'C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe'
+    let g:previm_enable_realtime=1
+  endif
 
 call plug#end()
 
@@ -44,9 +50,9 @@ set t_Co=256                          " ターミナルで256色表示
 set ttyfast                           " ターミナル接続の高速化
 set vb t_vb=                          " ビープ音を消す
 set backup                            " .xxx~
-set backupdir=~/.vim/backup           " backupの場所
+"set backupdir=~/.vim/backup           " backupの場所
 set viminfo='50,f1,<500,:10,h         " viminfoの設定
-set viminfo+=n~/.vim/viminfo/_viminfo " viminfoの場所
+"set viminfo+=n~/.vim/viminfo/_viminfo " viminfoの場所
 
 set autoread                          " 変更時に自動再読み込み
 set updatetime=100                    " ミリ秒
@@ -64,6 +70,14 @@ set imsearch=0                        " Off&Off 検索時
 set clipboard=unnamedplus             " Enable clipboad
 set nrformats=""                      " C-a,C-xは10進数
 set ignorecase                        " 大文字小文字を区別しない
+
+" 日本語入力用のkeymapの設定
+if has('keymap')
+  " ローマ字仮名のkeymap
+  silent! set keymap=japanese
+  set iminsert=0 imsearch=0
+endif
+
 
 "<}}}
 "  Format"{{{>
