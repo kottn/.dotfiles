@@ -29,9 +29,6 @@ Plug 'w0ng/vim-hybrid'       " hybrid
 Plug 'cocopon/iceberg.vim'   " iceberg
 Plug 'sjl/badwolf'           " badwolf,goodwolf
 
-" For generate ToC
-Plug 'mzlogin/vim-markdown-toc'
-
 " For Kaoriya-Vim
 Plug 'previm/previm'
   let g:previm_disable_default_css = 1
