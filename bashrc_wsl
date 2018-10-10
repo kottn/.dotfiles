@@ -1,4 +1,4 @@
 #==========================================
 # .bashrc_wsl
 #==========================================
-alias ls='ls -FX --color=never --show-control-chars'
+#alias ls='ls -FX --color=never --show-control-chars'
