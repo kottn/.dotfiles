@@ -1,6 +1,5 @@
 build-essential
-vim-gtk
-neovim
+vim-nox
 gfortran
 fort77
 python
