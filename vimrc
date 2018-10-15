@@ -119,12 +119,12 @@ set background=dark
 colorscheme iceberg  " e.g. default, hybrid, iceberg, goodwolf
 
 " いつでも背景透過
-hi Normal ctermbg=NONE guibg=NONE
-hi NonText ctermbg=NONE guibg=NONE
-hi SpecialKey ctermbg=NONE guibg=NONE
-hi EndOfBuffer ctermbg=NONE guibg=NONE
-hi LineNr ctermbg=NONE guibg=NONE
-hi Comment ctermbg=NONE guibg=NONE
+"hi Normal ctermbg=NONE guibg=NONE
+"hi NonText ctermbg=NONE guibg=NONE
+"hi SpecialKey ctermbg=NONE guibg=NONE
+"hi EndOfBuffer ctermbg=NONE guibg=NONE
+"hi LineNr ctermbg=NONE guibg=NONE
+"hi Comment ctermbg=NONE guibg=NONE
 
 " CommentやFoldの色
 hi Comment cterm=Italic ctermfg=DarkGray guifg=DarkGray
