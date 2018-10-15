@@ -51,9 +51,17 @@ set t_Co=256                          " ターミナルで256色表示
 set ttyfast                           " ターミナル接続の高速化
 set vb t_vb=                          " ビープ音を消す
 set backup                            " .xxx~
-"set backupdir=~/.vim/backup           " backupの場所
+if has('unix')
+  set backupdir=~/.vim/backup         " backupの場所
+elseif has('win64')
+  set backupdir=$VIM/.vim/backup      " backupの場所 for Kaoriya
+endif
 set viminfo='50,f1,<500,:10,h         " viminfoの設定
-"set viminfo+=n~/.vim/viminfo/_viminfo " viminfoの場所
+if has('unix')
+  set viminfo+=n~/.vim/viminfo/_viminfo    " viminfoの場所
+elseif has('win64')
+  set viminfo+=n$VIM/.vim/viminfo/_viminfo " viminfoの場所 for Kaoriya
+endif
 
 set autoread                          " 変更時に自動再読み込み
 set updatetime=100                    " ミリ秒
