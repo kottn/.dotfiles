@@ -135,7 +135,7 @@ colorscheme iceberg  " e.g. default, hybrid, iceberg, goodwolf
 "hi Comment ctermbg=NONE guibg=NONE
 
 " CommentやFoldの色
-hi Comment cterm=Italic ctermfg=DarkGray guifg=DarkGray
+hi Comment cterm=Italic
 hi Folded term=standout ctermbg=Black ctermfg=Yellow guibg=Black guifg=Yellow
 hi FoldColumn term=standout ctermbg=Black ctermfg=Yellow guibg=Black guifg=Yellow
 
