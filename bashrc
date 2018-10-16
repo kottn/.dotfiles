@@ -43,8 +43,8 @@ function ss { name=${1:-${PWD##*/}} && screen -D -R $name; }
 function rr { R --vanilla < ${1} > ${1}.log; less ${1}.log; }
 function ff { if [ ! "$1" ]; then echo 'usage: ff pattern [dir ...]'; \
                         else n="*$1*"; shift; find . "$@" -name "$n"; fi }
-function ee { less  `ls -t ./stderr/*.e[0-9]* | head -n 1`; }
-function oo { less  `ls -t ./stdout/*.o[0-9]* | head -n 1`; }
+function ee { f=`ls -t ./stderr/*.e[0-9]* | head -n 1` && echo $f; less $f; }
+function oo { f=`ls -t ./stdout/*.o[0-9]* | head -n 1` && echo $f; less $f; }
 function gm { for pr in "$@"; do \mv -v --backup=numbered ${pr} ~/_gm; done }
 
 alias sc='source ~/.bashrc'
