@@ -42,7 +42,7 @@ Plug 'previm/previm'
 
 " Twitter
 Plug 'https://github.com/twitvim/twitvim.git'
-  let twitvim_count = 20
+  let twitvim_count = 40
 
 call plug#end()
 
@@ -257,6 +257,7 @@ map <silent> <F10> :bn<cr>
 nnoremap <leader>n :setlocal number!<CR>
 nnoremap <leader>t :setlocal expandtab!<cr>
 nnoremap <leader>p :setlocal paste!<cr>
+nnoremap <leader>w :setlocal wrap!<cr>
 
 " インサートモード解除時に paste mode 解除
 augroup PasteMode
