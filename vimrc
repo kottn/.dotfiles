@@ -40,6 +40,10 @@ Plug 'previm/previm'
     let g:previm_custom_css_path = '~/dotfiles/templates/markdown.css'
   endif
 
+" Twitter
+Plug 'https://github.com/twitvim/twitvim.git'
+  let twitvim_count = 20
+
 call plug#end()
 
 filetype plugin indent on
