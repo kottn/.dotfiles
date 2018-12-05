@@ -42,7 +42,11 @@ Plug 'previm/previm'
 
 " Twitter
 Plug 'https://github.com/twitvim/twitvim.git'
-  let twitvim_count = 40
+  let twitvim_count = 120
+  augroup TwitVimMode
+    autocmd!
+    autocmd Filetype twitvim setlocal nonumber
+  augroup END
 
 call plug#end()
 
