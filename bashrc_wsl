@@ -2,3 +2,4 @@
 # .bashrc_wsl
 #==========================================
 #alias ls='ls -FX --color=never --show-control-chars'
+umask 022

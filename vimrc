@@ -1,5 +1,5 @@
 "
-"  Kotani's vimrc
+"  kottn's vimrc
 "
 "  Plugins"{{{>
 "--------------------------------------
@@ -13,7 +13,7 @@ Plug 'vim-jp/vimdoc-ja'
   set helplang=ja
 
 Plug 'junegunn/vim-easy-align'
-  vmap <Enter> <Plug>(EasyAlign)
+  xmap <Enter> <Plug>(EasyAlign)
   nmap ga <Plug>(EasyAlign)
 
 " For comment
@@ -23,6 +23,8 @@ Plug 'scrooloose/nerdcommenter'
   let g:NERDDefaultAlign = 'left'
   let g:NERDCommentEmptyLines = 1
   let g:NERDTrimTrailingWhitespace = 1
+  map <leader><leader> <leader>c<space>
+  map <leader>=        <leader>cs
 
 " http://colorswat.ch/vim
 Plug 'w0ng/vim-hybrid'       " hybrid
@@ -254,8 +256,8 @@ nnoremap Y y$
 " xの削除でヤンクしない
 noremap x "_x
 
-map <silent> <F9> :bN<cr>
-map <silent> <F10> :bn<cr>
+noremap <silent> <F9> :bN<cr>
+noremap <silent> <F10> :bn<cr>
 
 " トグル
 nnoremap <leader>n :setlocal number!<CR>
@@ -281,7 +283,7 @@ nnoremap <leader>++s :e ++enc=shift_jis<cr>
 nnoremap <leader>++c :e ++enc=cp932<cr>
 nnoremap <leader>++i :e ++enc=iso2022-jp<cr>
 
-nnoremap <leader><leader> :lcd %:h<cr>
+nnoremap <leader>h :lcd %:h<cr>
 
 " Vimgrep function
 command! -complete=buffer -nargs=1 LVDir lv /<args>/j *%:e | lop
