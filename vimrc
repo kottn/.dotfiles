@@ -97,6 +97,7 @@ if has('keymap')
   set iminsert=0 imsearch=0
 endif
 
+set mouse-=a                          " マウスを使わない
 
 "<}}}
 "  Format"{{{>
